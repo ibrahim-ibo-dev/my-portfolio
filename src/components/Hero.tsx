@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import dynamic from "next/dynamic";
 import Magnetic from "@/components/Magnetic";
+import TextReveal from "@/components/TextReveal";
 const Scene3D = dynamic(() => import("./Scene3D"), { ssr: false });
 
 const trustItems = [
@@ -110,16 +111,16 @@ export default function Hero() {
         </h1>
 
         {/* Value proposition */}
-        <p
-          ref={subtitleRef}
-          className="text-body-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10"
-          style={{ opacity: 0 }}
-        >
-          I engineer <span className="text-white font-medium">software systems</span> and{" "}
-          <span className="text-white font-medium">AI platforms</span> that actually work in the real world. 
-          From building localized tech showcased at <span className="text-accent">HITEX 2025</span>, 
-          to leading development teams and winning national hackathons.
-        </p>
+        <TextReveal>
+          <p
+            className="text-body-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10"
+          >
+            I engineer <span className="text-white font-medium">software systems</span> and{" "}
+            <span className="text-white font-medium">AI platforms</span> that actually work in the real world. 
+            From building localized tech showcased at <span className="text-accent">HITEX 2025</span>, 
+            to leading development teams and winning national hackathons.
+          </p>
+        </TextReveal>
 
         {/* CTA buttons */}
         <div
