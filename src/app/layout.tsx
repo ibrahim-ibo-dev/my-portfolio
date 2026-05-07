@@ -83,6 +83,7 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+import DeveloperEasterEgg from "@/components/DeveloperEasterEgg";
 
 export default function RootLayout({
   children,
@@ -93,6 +94,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${spaceGrotesk.variable} antialiased`}>
         <CustomCursor />
+        <DeveloperEasterEgg />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
