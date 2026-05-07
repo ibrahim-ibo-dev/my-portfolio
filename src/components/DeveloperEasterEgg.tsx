@@ -43,7 +43,7 @@ export default function DeveloperEasterEgg() {
         // Apply matrix effect to body
         const style = document.createElement('style');
         style.id = "matrix-easter-egg-style";
-        style.innerHTML = \`
+        style.innerHTML = `
           body {
             filter: hue-rotate(120deg) saturate(2) contrast(1.5) !important;
             transition: filter 1s ease-in-out;
@@ -51,7 +51,7 @@ export default function DeveloperEasterEgg() {
           * {
             font-family: monospace !important;
           }
-        \`;
+        `;
         document.head.appendChild(style);
 
         // Remove after 10 seconds
