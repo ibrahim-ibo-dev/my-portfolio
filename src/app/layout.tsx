@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/og-image.jpg", // We will tell the user to add this image to public folder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Ibrahim Hussein Portfolio",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Ibrahim Hussein | Computer Engineer & AI Developer",
     description:
       "Award-winning Computer Engineering student building AI-powered applications, full-stack solutions, and innovative hardware systems.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
