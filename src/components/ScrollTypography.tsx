@@ -31,8 +31,8 @@ export default function ScrollTypography({ lines, className = "" }: Props) {
         { x: direction * -150 },
         {
           x: direction * 250,
-          scale: scaleTarget,
           ease: "none",
+          force3D: true,
           scrollTrigger: {
             trigger: section,
             start: "top bottom",
@@ -59,6 +59,7 @@ export default function ScrollTypography({ lines, className = "" }: Props) {
           style={{
             color: "transparent",
             WebkitTextStroke: `1px rgba(212, 165, 116, ${0.15 + i * 0.07})`,
+            willChange: "transform",
           }}
         >
           {line}
