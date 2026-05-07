@@ -70,6 +70,15 @@ export default function Experience() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      if (headerRef.current) (headerRef.current as HTMLElement).style.opacity = "1";
+      sectionRef.current.querySelectorAll(".exp-card").forEach((el) => {
+        (el as HTMLElement).style.opacity = "1";
+      });
+      return;
+    }
 
     const triggers: ScrollTrigger[] = [];
 
@@ -150,7 +159,8 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="py-16 md:py-32 relative overflow-hidden exp-beams"
+      className="py-20 md:py-32 relative overflow-hidden exp-beams"
+      aria-labelledby="experience-heading"
     >
       {/* Soft vertical light beam behind timeline */}
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[600px] bg-accent/[0.025] rounded-full blur-[200px] rotate-12" />
@@ -160,16 +170,16 @@ export default function Experience() {
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-20" style={{ opacity: 0 }}>
-          <span className="text-xs font-mono text-accent-light tracking-[0.3em] uppercase">
-            // Career Path
+          <span className="overline text-accent-light/70">
+            {"// Career Path"}
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 text-gradient">
+          <h2 id="experience-heading" className="text-heading text-gradient mt-4">
             Experience
           </h2>
-          <p className="text-gray-500 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
-            A journey through the companies and teams that shaped my craft.
+          <p className="text-body text-muted mt-4 max-w-lg mx-auto leading-relaxed">
+            The teams and projects that shaped how I build.
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
+          <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
         </div>
 
         {/* Timeline */}

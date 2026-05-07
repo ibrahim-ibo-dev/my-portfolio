@@ -39,7 +39,7 @@ const fragShader = `
   float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
     mat2 m = mat2(1.6, 1.2, -1.2, 1.6);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
       v += a * gnoise(p);
       p = m * p;
       a *= 0.5;
@@ -103,7 +103,7 @@ const fragShader = `
 
     // ── Neural network / constellation lines ──
     float lines = 0.0;
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 4; i++) {
       float fi = float(i);
       float x1 = fract(fi * 0.37 + t * 0.05);
       float y1 = fract(fi * 0.53 + t * 0.03);
@@ -123,7 +123,7 @@ const fragShader = `
     col += vec3(0.35, 0.22, 0.1) * lines;
 
     // ── Subtle particles — drifting, orbiting, twinkling ──
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 12; i++) {
       float fi = float(i);
       float seed1 = fract(sin(fi * 127.1) * 43758.5);
       float seed2 = fract(cos(fi * 311.7) * 43758.5);
@@ -167,7 +167,14 @@ export default function Scene3D() {
     const container = containerRef.current;
     if (!container) return;
 
-    // Full-screen quad — orthographic camera
+    // Skip 3D rendering for users who prefer reduced motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      container.style.background = "radial-gradient(ellipse at 50% 40%, #1a1510 0%, #0A0A0F 70%)";
+      container.setAttribute("aria-hidden", "true");
+      return;
+    }
+
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
 
@@ -188,7 +195,7 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.0));
+    renderer.setPixelRatio(0.5);
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -198,17 +205,31 @@ export default function Scene3D() {
     };
     window.addEventListener("resize", onResize);
 
+    // Pause when off-screen
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0.05 }
+    );
+    observer.observe(container);
+
     let raf = 0;
     const clock = new THREE.Clock();
-    const loop = () => {
+    let lastFrame = 0;
+    const frameInterval = 1000 / 30;
+    const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
+      if (!isVisible) return;
+      if (time - lastFrame < frameInterval) return;
+      lastFrame = time;
       material.uniforms.uTime.value = clock.getElapsedTime();
       renderer.render(scene, camera);
     };
-    loop();
+    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
+      observer.disconnect();
       window.removeEventListener("resize", onResize);
       geometry.dispose();
       material.dispose();
@@ -219,5 +240,5 @@ export default function Scene3D() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute inset-0 -z-10" />;
+  return <div ref={containerRef} className="absolute inset-0 -z-10" aria-hidden="true" />;
 }

@@ -36,7 +36,7 @@ const fragShader = `
   float fbm(vec2 p) {
     float v = 0.0, a = 0.5;
     mat2 m = mat2(1.6, 1.2, -1.2, 1.6);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
       v += a * gnoise(p);
       p = m * p;
       a *= 0.5;
@@ -91,7 +91,7 @@ const fragShader = `
     col += vec3(0.07, 0.045, 0.02) * 0.15 * exp(-ad * 1.3);
 
     // ── Scattered twinkling stars ──
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 15; i++) {
       float fi = float(i);
       float sx = fract(sin(fi * 157.3) * 43758.5);
       float sy = fract(cos(fi * 297.1) * 43758.5);
@@ -138,7 +138,7 @@ export default function AboutBackground() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.0));
+    renderer.setPixelRatio(0.5);
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -152,6 +152,8 @@ export default function AboutBackground() {
     let raf = 0;
     const clock = new THREE.Clock();
     let isVisible = false;
+    let lastFrame = 0;
+    const frameInterval = 1000 / 30;
 
     const observer = new IntersectionObserver(
       ([entry]) => { isVisible = entry.isIntersecting; },
@@ -159,13 +161,15 @@ export default function AboutBackground() {
     );
     observer.observe(container);
 
-    const loop = () => {
+    const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
       if (!isVisible) return;
+      if (time - lastFrame < frameInterval) return;
+      lastFrame = time;
       material.uniforms.uTime.value = clock.getElapsedTime();
       renderer.render(scene, camera);
     };
-    loop();
+    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);

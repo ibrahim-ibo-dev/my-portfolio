@@ -4,9 +4,10 @@ import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaCode, FaMicrochip, FaRobot, FaBolt, FaVideo, FaServer } from "react-icons/fa";
-import FloatingObject from "./FloatingObject";
-import AboutBackground from "./AboutBackground";
+import { FaCode, FaMicrochip, FaRobot, FaBolt } from "react-icons/fa";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+const AboutBackground = dynamic(() => import("./AboutBackground"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,53 +15,33 @@ const highlights = [
   {
     icon: <FaCode className="text-lg" />,
     title: "Full-Stack Development",
-    desc: "Proficient in Python, C++, HTML/CSS, MySQL, and C# with hands-on web development experience.",
+    desc: "Building complete web systems — from database schema to UI — using Next.js, Python, PHP, and MySQL.",
     color: "from-accent/20 to-accent/10",
     textColor: "text-accent",
   },
   {
     icon: <FaRobot className="text-lg" />,
-    title: "AI & Machine Learning",
-    desc: "Building AI-powered apps including Kurdish language support, chatbots, and customer service AI platforms.",
+    title: "AI-Powered Applications",
+    desc: "Shipping production AI tools: customer service agents, Kurdish NLP systems, and multi-provider API pipelines.",
     color: "from-accent/10 to-accent-light/20",
     textColor: "text-accent-light",
   },
   {
     icon: <FaMicrochip className="text-lg" />,
-    title: "Hardware & IoT",
-    desc: "Creating smart systems with Arduino, sensors, drones, and integrated circuits for real-world solutions.",
+    title: "Hardware & Embedded Systems",
+    desc: "Designing smart systems with Arduino, sensors, and integrated circuits — from prototype to working product.",
     color: "from-accent-light/20 to-accent-light/10",
     textColor: "text-accent-light",
   },
   {
-    icon: <FaVideo className="text-lg" />,
-    title: "Media Production",
-    desc: "Professional video editing with DaVinci Resolve, audio production with Adobe Audition and Audacity.",
-    color: "from-accent-light/10 to-accent/20",
-    textColor: "text-accent",
-  },
-  {
-    icon: <FaServer className="text-lg" />,
-    title: "System Administration",
-    desc: "Linux system admin, database management, technical support, and project leadership experience.",
-    color: "from-accent/15 to-accent-light/15",
-    textColor: "text-accent",
-  },
-  {
     icon: <FaBolt className="text-lg" />,
-    title: "Innovation & Leadership",
-    desc: "Co-founded CSAI, supported 70+ members at NICER Club, and led multiple award-winning projects.",
+    title: "Systems Architecture",
+    desc: "Structuring projects with clean separation of concerns — APIs, databases, auth, and deployment pipelines.",
     color: "from-accent-light/15 to-accent/10",
-    textColor: "text-accent-light",
+    textColor: "text-accent",
   },
 ];
 
-const stats = [
-  { value: "6+", label: "Languages" },
-  { value: "10+", label: "Projects" },
-  { value: "9+", label: "Certificates" },
-  { value: "70+", label: "Members Supported" },
-];
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -68,8 +49,15 @@ export default function About() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const reveals = sectionRef.current.querySelectorAll(".about-reveal");
+
+    if (prefersReducedMotion) {
+      reveals.forEach((el) => { (el as HTMLElement).style.opacity = "1"; });
+      return;
+    }
+
     const triggers: ScrollTrigger[] = [];
 
     reveals.forEach((el, i) => {
@@ -97,9 +85,9 @@ export default function About() {
 
 
   return (
-    <section id="about" ref={sectionRef} className="py-32 relative overflow-hidden">
+    <section id="about" ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden" aria-labelledby="about-heading">
       <AboutBackground />
-      <div className="section-divider absolute top-0 left-0 right-0" />
+      <div className="section-divider absolute top-0 left-0 right-0" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -109,46 +97,49 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-xs font-mono text-accent tracking-[0.3em] uppercase">
-            // About Me
+          <span className="overline text-accent/70">
+            {"// About Me"}
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 text-gradient">
-            Ibrahim Hussein
+          <h2 id="about-heading" className="text-heading text-gradient mt-4">
+            About Me
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
+          <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
         </motion.div>
 
-        <div>
-          {/* Content */}
-          <div>
-            <div className="about-reveal">
-              <h3 className="text-2xl md:text-3xl font-semibold mb-6 leading-snug">
-                A passionate engineer building{" "}
-                <span className="text-gradient">the future with AI &amp; Innovation</span>
-              </h3>
-              <p className="text-gray-400 leading-relaxed mb-4 text-[15px]">
-                I&apos;m a Computer Engineering student at Lebanese French University in Erbil, Kurdistan Region.
-                Award-winning technical specialist (2nd Place at Salahaddin University Coding Competition) with
-                hands-on experience in AI-powered applications, video production, and digital marketing.
-              </p>
-              <p className="text-gray-400 leading-relaxed mb-8 text-[15px]">
-                I support over 70 members at NICER Club with 30+ hardware and 40+ software/AI projects.
-                I co-founded CSAI (Customer Service AI) showcased at HITEX 2025, and successfully combined
-                technical innovation with creative marketing. Specialized in full-stack development, content creation,
-                and AI agent development.
-              </p>
+        <div className="grid lg:grid-cols-5 gap-10 items-start">
+          {/* Profile Photo */}
+          <div className="lg:col-span-2 about-reveal flex justify-center">
+            <div className="relative group w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none">
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-accent/15 shadow-2xl shadow-black/40">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Ibrahim Hussein"
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 280px, 320px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F]/50 via-transparent to-transparent" />
+              </div>
+              <div className="absolute -inset-3 bg-gradient-to-br from-accent/10 to-accent-light/5 rounded-3xl blur-2xl -z-10 group-hover:from-accent/20 group-hover:to-accent-light/10 transition-all duration-700" />
+              <div className="absolute -top-1 -left-1 w-6 h-6 border-l-2 border-t-2 border-accent/30 rounded-tl-lg" />
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 border-r-2 border-b-2 border-accent-light/30 rounded-br-lg" />
             </div>
+          </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-4 gap-3 mb-8 about-reveal">
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center p-3 rounded-xl glass-card">
-                  <div className="text-xl font-bold text-gradient">{stat.value}</div>
-                  <div className="text-[10px] text-gray-500 mt-1 uppercase tracking-wider font-mono">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+          {/* Content */}
+          <div className="lg:col-span-3">
+            <div className="about-reveal">
+              <h3 className="text-subheading font-semibold mb-6 leading-snug">
+                I build things that{" "}
+                <span className="text-gradient">actually ship</span>
+              </h3>
+              <p className="text-body text-muted leading-relaxed mb-4">
+                Computer Engineering student at <span className="text-gray-300">Lebanese French University</span>, Erbil. My core is <span className="text-gray-300">full-stack development</span> and <span className="text-gray-300">hardware systems</span> — I work across the entire stack, from writing C++ firmware for embedded devices to deploying full web platforms with AI backends.
+              </p>
+              <p className="text-body text-muted leading-relaxed mb-8">
+                I co-founded <span className="text-gray-300">CSAI</span>, a full-stack AI platform showcased at <span className="text-accent/90">HITEX 2025</span>, and have since shipped <span className="text-gray-300">Chat Mart</span> — a SaaS omni-channel system serving real businesses. Alongside that, I&apos;ve built 30+ hardware projects and led software development for <span className="text-gray-300">70+ members</span> at NICER Club.
+              </p>
             </div>
 
             {/* Highlight cards */}
@@ -163,7 +154,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm mb-1">{item.title}</h4>
-                    <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                    <p className="text-xs text-gray-400 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}

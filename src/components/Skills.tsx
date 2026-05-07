@@ -18,18 +18,12 @@ import {
   SiReact,
   SiNextdotjs,
   SiTypescript,
-  SiTailwindcss,
   SiNodedotjs,
   SiExpress,
   SiMongodb,
   SiFirebase,
   SiLaravel,
   SiPhp,
-  SiInertia,
-  SiMongoose,
-  SiPostcss,
-  SiFramer,
-  SiAuth0,
 } from "react-icons/si";
 import { FaRobot, FaBrain, FaCamera, FaHeadphones, FaServer, FaDesktop, FaDatabase, FaMicrochip } from "react-icons/fa";
 
@@ -51,11 +45,8 @@ const categories: SkillCategory[] = [
       { name: "React", icon: <SiReact />, color: "#61DAFB" },
       { name: "Next.js", icon: <SiNextdotjs />, color: "#ffffff" },
       { name: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
-      { name: "Tailwind", icon: <SiTailwindcss />, color: "#06B6D4" },
       { name: "HTML", icon: <SiHtml5 />, color: "#E34F26" },
       { name: "CSS", icon: <SiCss />, color: "#1572B6" },
-      { name: "Motion", icon: <SiFramer />, color: "#0055FF" },
-      { name: "PostCSS", icon: <SiPostcss />, color: "#DD3A0A" },
     ],
   },
   {
@@ -71,7 +62,6 @@ const categories: SkillCategory[] = [
       { name: "C++", icon: <SiCplusplus />, color: "#00599C" },
       { name: "C#", icon: <SiSharp />, color: "#68217A" },
       { name: "REST API", icon: <FaServer />, color: "#E8C9A0" },
-      { name: "Auth", icon: <SiAuth0 />, color: "#EB5424" },
     ],
   },
   {
@@ -82,7 +72,6 @@ const categories: SkillCategory[] = [
       { name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
       { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
       { name: "Firebase", icon: <SiFirebase />, color: "#FFCA28" },
-      { name: "Mongoose", icon: <SiMongoose />, color: "#880000" },
     ],
   },
   {
@@ -111,7 +100,7 @@ export default function Skills() {
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={sectionRef} className="pt-12 pb-24 relative overflow-hidden">
+    <section id="skills" ref={sectionRef} className="py-20 md:pt-12 md:pb-24 relative overflow-hidden" aria-labelledby="skills-heading">
       <div className="absolute inset-0 skills-dot-grid opacity-60" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[180px]" />
       <div className="absolute top-10 left-10 w-[350px] h-[350px] bg-accent-light/[0.03] rounded-full blur-[120px]" />
@@ -124,13 +113,13 @@ export default function Skills() {
           transition={{ duration: 0.8 }}
           className="text-center mb-14"
         >
-          <span className="text-xs font-mono text-accent tracking-[0.3em] uppercase">
-            // Tech Stack
+          <span className="overline text-accent/70">
+            {"// Tech Stack"}
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 text-gradient">
+          <h2 id="skills-heading" className="text-heading text-gradient mt-4">
             Skills &amp; Technologies
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
+          <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-5">
@@ -140,7 +129,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIdx * 0.12 }}
-              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-5 hover:border-white/10 transition-all duration-500"
+              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-5 hover:border-accent/15 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500"
             >
               {/* Category header */}
               <div className="flex items-center gap-2.5 mb-4">

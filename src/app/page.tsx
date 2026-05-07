@@ -9,11 +9,15 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Credentials from "@/components/Credentials";
+import InteractivePhilosophy from "@/components/InteractivePhilosophy";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
     <main className="relative">
+      <LoadingScreen />
       <Navbar />
       <Hero />
       <CurvedText />
@@ -43,7 +47,9 @@ export default function Home() {
       />
       <Experience />
       <Credentials />
+      <InteractivePhilosophy />
       <Contact />
+      <Footer />
     </main>
   );
 }
