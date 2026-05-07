@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import dynamic from "next/dynamic";
+import Magnetic from "@/components/Magnetic";
 const Scene3D = dynamic(() => import("./Scene3D"), { ssr: false });
 
 const trustItems = [
@@ -126,21 +127,25 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14"
           style={{ opacity: 0 }}
         >
-          <a
-            href="#projects"
-            className="btn-primary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-          >
-            View My Work
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a
-            href="#contact"
-            className="btn-secondary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-          >
-            Get in Touch
-          </a>
+          <Magnetic strength={0.3}>
+            <a
+              href="#projects"
+              className="btn-primary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 block"
+            >
+              View My Work
+              <svg className="w-4 h-4 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </Magnetic>
+          <Magnetic strength={0.3}>
+            <a
+              href="#contact"
+              className="btn-secondary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 block"
+            >
+              Get in Touch
+            </a>
+          </Magnetic>
         </div>
 
         {/* Trust bar */}

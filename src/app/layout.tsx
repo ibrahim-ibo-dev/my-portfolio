@@ -72,6 +72,8 @@ export const metadata: Metadata = {
   },
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: {
@@ -79,7 +81,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
+      <body className={`${spaceGrotesk.variable} antialiased`}>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
