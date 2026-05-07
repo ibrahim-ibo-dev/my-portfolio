@@ -93,6 +93,32 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${spaceGrotesk.variable} antialiased`}>
+        {/* SEO JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ibrahim Hussein",
+              jobTitle: "Computer Engineer & AI Developer",
+              url: "https://ibrahim-eng.dev",
+              sameAs: [
+                "https://github.com/ibrahim-ibo-dev",
+                "https://www.linkedin.com/in/ibrahim-hussein-75ba492b4/" // The user's LinkedIn (placeholder or actual if known)
+              ],
+              alumniOf: "Salahaddin University",
+              knowsAbout: [
+                "Artificial Intelligence",
+                "Web Development",
+                "Next.js",
+                "React",
+                "Embedded Systems",
+                "Arduino"
+              ]
+            })
+          }}
+        />
         <CustomCursor />
         <DeveloperEasterEgg />
         <SmoothScroll>{children}</SmoothScroll>
