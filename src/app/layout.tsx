@@ -9,7 +9,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahimhussein.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahim-eng.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -46,12 +46,21 @@ export const metadata: Metadata = {
     siteName: "Ibrahim Hussein Portfolio",
     locale: "en_US",
     url: "/",
+    images: [
+      {
+        url: "/og-image.jpg", // We will tell the user to add this image to public folder
+        width: 1200,
+        height: 630,
+        alt: "Ibrahim Hussein Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ibrahim Hussein | Computer Engineer & AI Developer",
     description:
       "Award-winning Computer Engineering student building AI-powered applications, full-stack solutions, and innovative hardware systems.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
