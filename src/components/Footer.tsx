@@ -3,7 +3,7 @@ import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 const footerLinks = [
   { icon: FiGithub, href: "https://github.com/ibrahim-ibo-dev", label: "GitHub" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/ibrahim-hussein-b080712b7/", label: "LinkedIn" },
-  { icon: FiMail, href: "mailto:ibrahimhuseein842@gmail.com", label: "Email" },
+  { icon: FiMail, href: "https://mail.google.com/mail/?view=cm&fs=1&to=ibrahimhuseein842@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-center sm:items-start gap-2">
             <span className="text-sm font-semibold text-gradient">Ibrahim Hussein</span>
-            <a href="mailto:ibrahimhuseein842@gmail.com" className="text-sm text-subtle hover:text-accent transition-colors font-mono">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ibrahimhuseein842@gmail.com" target="_blank" rel="noopener noreferrer" className="text-sm text-subtle hover:text-accent transition-colors font-mono">
               ibrahimhuseein842@gmail.com
             </a>
             <p className="text-caption text-subtle">

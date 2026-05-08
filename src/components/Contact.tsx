@@ -116,7 +116,9 @@ export default function Contact() {
         <div className="max-w-2xl mx-auto">
           <div ref={infoRef} className="space-y-5">
             <a
-              href="mailto:ibrahimhuseein842@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=ibrahimhuseein842@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="info-card glass-card rounded-xl p-5 flex items-center gap-4 border border-accent/10 hover:border-accent/20 transition-all"
               style={{ opacity: 0 }}
             >
