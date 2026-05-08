@@ -163,10 +163,10 @@ export default function Contact() {
                   <a
                     key={label}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                     className="info-card w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-accent transition-all duration-300 border border-white/5 hover:border-accent/30 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
-                    aria-label={`${label} (opens in new tab)`}
+                    aria-label={href.startsWith("mailto:") ? label : `${label} (opens in new tab)`}
                     style={{ opacity: 0 }}
                   >
                     <Icon className="text-xl" aria-hidden="true" />

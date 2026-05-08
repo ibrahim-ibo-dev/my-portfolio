@@ -105,7 +105,7 @@ export default function RootLayout({
               url: "https://ibrahim-eng.dev",
               sameAs: [
                 "https://github.com/ibrahim-ibo-dev",
-                "https://www.linkedin.com/in/ibrahim-hussein-75ba492b4/" // The user's LinkedIn (placeholder or actual if known)
+                "https://www.linkedin.com/in/ibrahim-hussein-b080712b7/"
               ],
               alumniOf: "Salahaddin University",
               knowsAbout: [
