@@ -133,7 +133,8 @@ const fragShader = `
       float px = fract(seed1 + t * (0.03 + fi * 0.004) + orbitR * sin(t * orbitSpeed + fi * 1.3));
       float py = fract(seed2 + t * (0.015 + fi * 0.003) + orbitR * 0.5 * cos(t * orbitSpeed * 0.8 + fi * 2.1));
       vec2 pPos = vec2(px * aspect, py);
-      float pBright = 0.0015 / (length(uvA - pPos) + 0.004);
+      // Make particles slightly softer and larger so they don't look like single sharp pixels
+      float pBright = 0.002 / (length(uvA - pPos) + 0.008);
       // Varied twinkle speeds
       pBright *= 0.4 + 0.6 * sin(t * (2.0 + fi * 0.5) + fi * 2.5);
       // Color variation — warm gold range
@@ -195,7 +196,8 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(0.25);
+    // Increase pixel ratio slightly on mobile to prevent "square" stars (minimum 0.5)
+    renderer.setPixelRatio(Math.max(0.5, Math.min(window.devicePixelRatio * 0.5, 1)));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
