@@ -111,21 +111,21 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         )}
 
-        {/* Overview */}
-        <div className="reveal-up mb-12">
+        {/* TL;DR */}
+        <div className="reveal-up mb-14">
           <h2 className="overline text-accent/70 mb-4">
-            {"// Overview"}
+            {"// In One Line"}
           </h2>
           <p className="text-body-lg text-gray-300 leading-relaxed max-w-3xl">
             {project.description}
           </p>
         </div>
 
-        {/* Problem */}
+        {/* The Problem */}
         {project.problem && (
           <div className="reveal-up mb-12">
             <h2 className="overline text-accent/70 mb-4">
-              {"// Problem"}
+              {"// The Problem"}
             </h2>
             <p className="text-body text-muted leading-relaxed max-w-3xl">
               {project.problem}
@@ -133,11 +133,11 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         )}
 
-        {/* Solution */}
+        {/* My Approach */}
         {project.solution && (
           <div className="reveal-up mb-12">
             <h2 className="overline text-accent/70 mb-4">
-              {"// Solution"}
+              {"// My Approach"}
             </h2>
             <p className="text-body text-muted leading-relaxed max-w-3xl">
               {project.solution}
@@ -145,13 +145,13 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         )}
 
-        {/* Impact */}
+        {/* The Result */}
         {project.impact && (
-          <div className="reveal-up mb-12">
-            <h2 className="overline text-accent/70 mb-4">
-              {"// Impact"}
+          <div className="reveal-up mb-12 rounded-2xl border border-accent/15 bg-accent/[0.03] p-6 md:p-8">
+            <h2 className="overline text-accent-light/90 mb-4">
+              {"// The Result"}
             </h2>
-            <p className="text-body text-gray-300 leading-relaxed max-w-3xl font-medium">
+            <p className="text-body-lg text-white leading-relaxed max-w-3xl font-medium">
               {project.impact}
             </p>
           </div>

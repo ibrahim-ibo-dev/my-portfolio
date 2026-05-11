@@ -13,30 +13,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
   {
-    icon: <FaCode className="text-lg" />,
-    title: "Full-Stack Development",
-    desc: "Building complete web systems — from database schema to UI — using Next.js, Python, PHP, and MySQL.",
+    icon: <FaRobot className="text-lg" />,
+    title: "AI Customer Automation",
+    desc: "Cutting response times for businesses with multilingual AI agents that handle real customer conversations on WhatsApp, Instagram, and Telegram.",
     color: "from-accent/20 to-accent/10",
     textColor: "text-accent",
   },
   {
-    icon: <FaRobot className="text-lg" />,
-    title: "AI-Powered Applications",
-    desc: "Shipping production AI tools: customer service agents, Kurdish NLP systems, and multi-provider API pipelines.",
+    icon: <FaBolt className="text-lg" />,
+    title: "Operations & Sales Systems",
+    desc: "Replacing paper, spreadsheets, and manual workflows with full RTL Kurdish web platforms — inventory, sales pipelines, RBAC, and reporting.",
     color: "from-accent/10 to-accent-light/20",
     textColor: "text-accent-light",
   },
   {
-    icon: <FaMicrochip className="text-lg" />,
-    title: "Hardware & Embedded Systems",
-    desc: "Designing smart systems with Arduino, sensors, and integrated circuits — from prototype to working product.",
+    icon: <FaCode className="text-lg" />,
+    title: "Local-Market Product Design",
+    desc: "Building products around how Kurdish and regional businesses actually operate — language, channels, ordering habits, and trust.",
     color: "from-accent-light/20 to-accent-light/10",
     textColor: "text-accent-light",
   },
   {
-    icon: <FaBolt className="text-lg" />,
-    title: "Systems Architecture",
-    desc: "Structuring projects with clean separation of concerns — APIs, databases, auth, and deployment pipelines.",
+    icon: <FaMicrochip className="text-lg" />,
+    title: "AI + Hardware Integration",
+    desc: "Bringing intelligence into the physical world — vision, attendance, and IoT systems where AI meets real environments.",
     color: "from-accent-light/15 to-accent/10",
     textColor: "text-accent",
   },
@@ -131,14 +131,13 @@ export default function About() {
           <div className="lg:col-span-3">
             <div className="about-reveal">
               <h3 className="text-subheading font-semibold mb-6 leading-snug">
-                I build things that{" "}
-                <span className="text-gradient">actually ship</span>
+                I build <span className="text-gradient">AI systems</span> that solve real business problems
               </h3>
               <p className="text-body text-muted leading-relaxed mb-4">
-                Computer Engineering student at <span className="text-gray-300">Lebanese French University</span>, Erbil. My core is <span className="text-gray-300">full-stack development</span> and <span className="text-gray-300">hardware systems</span> — I work across the entire stack, from writing C++ firmware for embedded devices to deploying full web platforms with AI backends.
+                I&apos;m a <span className="text-gray-300">Kurdish AI systems builder</span> focused on a clear niche: helping <span className="text-gray-300">real local businesses</span> automate and scale through modern, multilingual, RTL-native technology. Restaurants, dealerships, bookstores, and service businesses &mdash; the ones that still run on paper, WhatsApp screenshots, and overworked staff.
               </p>
               <p className="text-body text-muted leading-relaxed mb-8">
-                I co-founded <span className="text-gray-300">CSAI</span>, a full-stack AI platform showcased at <span className="text-accent/90">HITEX 2025</span>, and have since shipped <span className="text-gray-300">Chat Mart</span> — a SaaS omni-channel system serving real businesses. Alongside that, I&apos;ve built 30+ hardware projects and led software development for <span className="text-gray-300">70+ members</span> at NICER Club.
+                I co-founded <span className="text-gray-300">CSAI</span> (showcased at <span className="text-accent/90">HITEX 2025</span>) and evolved it into <span className="text-gray-300">Chat Mart</span> &mdash; an omni-channel AI platform that now handles customer conversations in <span className="text-gray-300">Kurdish, Arabic, and English</span> across 5 messaging channels for multiple companies. My focus isn&apos;t shipping more code; it&apos;s shipping <span className="text-gray-300">business outcomes</span>: faster response times, fewer manual workflows, and operations that scale.
               </p>
             </div>
 

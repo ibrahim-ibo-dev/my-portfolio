@@ -102,13 +102,13 @@ export default function Contact() {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16" style={{ opacity: 0 }}>
           <span className="overline text-accent/70">
-            {"// Get In Touch"}
+            {"// Work With Me"}
           </span>
           <h2 id="contact-heading" className="text-heading text-gradient mt-4">
-            Let&apos;s Build Something
+            Have a problem worth solving?
           </h2>
-          <p className="text-body text-muted mt-4 max-w-lg mx-auto leading-relaxed">
-            Let&apos;s connect and build something great together.
+          <p className="text-body text-muted mt-4 max-w-xl mx-auto leading-relaxed">
+            I work with businesses ready to <span className="text-gray-300">automate customer communication</span>, <span className="text-gray-300">digitize operations</span>, or <span className="text-gray-300">add AI</span> to how they actually run. If you have a real problem &mdash; not just a feature request &mdash; let&apos;s talk.
           </p>
           <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" aria-hidden="true" />
         </div>

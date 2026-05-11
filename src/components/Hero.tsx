@@ -8,10 +8,10 @@ import TextReveal from "@/components/TextReveal";
 const Scene3D = dynamic(() => import("./Scene3D"), { ssr: false });
 
 const trustItems = [
-  { value: "2nd", label: "Coding Competition" },
   { value: "HITEX", label: "2025 Showcase" },
-  { value: "10+", label: "Projects Shipped" },
-  { value: "30+", label: "Hardware Builds" },
+  { value: "Multi-Channel", label: "WhatsApp · IG · Telegram" },
+  { value: "Multilingual", label: "Kurdish · Arabic · English" },
+  { value: "Production", label: "Live Systems" },
 ];
 
 export default function Hero() {
@@ -97,7 +97,7 @@ export default function Hero() {
           className="overline text-accent/80 mb-6"
           style={{ opacity: 0 }}
         >
-          Computer Engineer &bull; AI Developer &bull; Innovator
+          AI Product Builder &bull; Smart Systems for Real Businesses
         </p>
 
         {/* Name */}
@@ -115,10 +115,8 @@ export default function Hero() {
           <p
             className="text-body-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            I engineer <span className="text-white font-medium">software systems</span> and{" "}
-            <span className="text-white font-medium">AI platforms</span> that actually work in the real world. 
-            From building localized tech showcased at <span className="text-accent">HITEX 2025</span>, 
-            to leading development teams and winning national hackathons.
+            I help <span className="text-white font-medium">Kurdish and regional businesses</span> automate customer communication, ordering, and operations with{" "}
+            <span className="text-white font-medium">AI-powered systems</span> built for the local market &mdash; multilingual, RTL-native, and production-ready.
           </p>
         </TextReveal>
 
@@ -133,7 +131,7 @@ export default function Hero() {
               href="#projects"
               className="btn-primary focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 block"
             >
-              View My Work
+              See Problems I Solve
               <svg className="w-4 h-4 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

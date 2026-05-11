@@ -14,25 +14,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    role: "AI Developer & Technical Lead",
-    company: "HITEX 2025 — CSAI Project",
+    role: "Co-Founder & AI Product Lead",
+    company: "CSAI — HITEX 2025",
     location: "Kurdistan, Iraq",
     period: "2025",
     description:
-      "Co-founded and presented CSAI (Customer Service AI) at HITEX 2025. Established a dedicated exhibition booth showcasing AI and web development projects. Demonstrated multiple AI-powered applications including Kurdish language support.",
-    technologies: ["AI", "Web Dev", "Exhibition", "Kurdish NLP"],
+      "Co-founded CSAI to solve a concrete problem: Kurdish businesses had no AI customer service that actually understood their language. Built and presented the platform at HITEX 2025 with a dedicated booth, validating the product live with real visitors and business owners before evolving it into Chat Mart.",
+    technologies: ["AI Product", "Kurdish NLP", "Customer Automation", "Live Demo"],
     color: "#D4A574",
     borderColor: "border-accent/30",
     bgColor: "bg-accent/5",
   },
   {
-    role: "Tech Supporter & Project Manager",
+    role: "Software & AI Project Lead",
     company: "NICER Club",
     location: "Kurdistan, Iraq",
     period: "2024 — Present",
     description:
-      "Supported over 70 members and 30+ hardware and 40+ software/AI projects within NICER Club — a non-profit youth technology organization. Assisted students in developing AI, robotics, and software ideas into real projects.",
-    technologies: ["Leadership", "AI", "Robotics", "Mentoring"],
+      "Turned scattered student ideas into shipped projects — guiding 70+ members through 40+ software/AI and 30+ hardware builds. My role wasn’t to code for them; it was to teach them how to scope a problem, pick the right stack, and ship something real.",
+    technologies: ["Tech Leadership", "Mentoring", "AI Projects", "Robotics"],
     color: "#E8C9A0",
     borderColor: "border-accent-light/30",
     bgColor: "bg-accent-light/5",
@@ -43,20 +43,20 @@ const experiences = [
     location: "Kurdistan, Iraq",
     period: "2024",
     description:
-      "Produced more than 40 audiobooks in 45 days. Managed 13-hour daily work schedules. Enhanced sound quality and maintained production standards. Edited and cleaned 30 audiobooks.",
-    technologies: ["Audio Production", "Editing", "Quality Control"],
+      "Helped a Kurdish-language audiobook platform launch with real content — producing 40+ audiobooks in 45 days on a 13-hour daily schedule. Proof that I ship under pressure and care about the local content ecosystem, not just code.",
+    technologies: ["Audio Production", "Editing", "High-Volume Delivery"],
     color: "#D4A574",
     borderColor: "border-accent/30",
     bgColor: "bg-accent/5",
   },
   {
-    role: "Videographer & Content Creator",
+    role: "Videographer & Content Producer",
     company: "Diwaxan Podcast / Mars Labs",
     location: "Kurdistan, Iraq",
     period: "2024",
     description:
-      "Created social media content and short podcast videos. Participated in HITEX 2024 events as a member of the podcast team. Edited and published 13 videos in less than 5 days.",
-    technologies: ["Video Production", "Social Media", "DaVinci Resolve"],
+      "Produced and shipped 13 podcast videos in under 5 days for HITEX 2024 coverage. Where most teams plan; I deliver. Same operator mindset I now apply to AI products.",
+    technologies: ["Video Production", "Storytelling", "DaVinci Resolve"],
     color: "#E8C9A0",
     borderColor: "border-accent-light/30",
     bgColor: "bg-accent-light/5",
@@ -171,13 +171,13 @@ export default function Experience() {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-20" style={{ opacity: 0 }}>
           <span className="overline text-accent-light/70">
-            {"// Career Path"}
+            {"// Track Record"}
           </span>
           <h2 id="experience-heading" className="text-heading text-gradient mt-4">
-            Experience
+            Where I&apos;ve Shipped
           </h2>
           <p className="text-body text-muted mt-4 max-w-lg mx-auto leading-relaxed">
-            The teams and projects that shaped how I build.
+            Roles, teams, and ventures where I&apos;ve turned ideas into shipped, working products &mdash; not just side projects.
           </p>
           <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
         </div>

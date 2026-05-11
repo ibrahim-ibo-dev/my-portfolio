@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import CurvedText from "@/components/CurvedText";
 import ScrollTypography from "@/components/ScrollTypography";
 import About from "@/components/About";
+import Principles from "@/components/Principles";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
@@ -23,17 +24,18 @@ export default function Home() {
       <CurvedText />
       <ScrollTypography
         lines={[
-          "PYTHON · C++ · REACT · FLUTTER · NEXT.JS · TYPESCRIPT · PYTHON · C++ · REACT ·",
-          "BUILD · INNOVATE · DEVELOP · AUTOMATE · DEPLOY · BUILD · INNOVATE ·",
-          "ARDUINO · AI · MACHINE LEARNING · DRONES · FLUTTER · ARDUINO · AI ·",
+          "AI PRODUCT BUILDER · SMART SYSTEMS · REAL BUSINESSES · AI PRODUCT BUILDER ·",
+          "AUTOMATE · MULTILINGUAL · RTL-NATIVE · SHIP · AUTOMATE · MULTILINGUAL ·",
+          "KURDISH · ARABIC · ENGLISH · BUILT FOR THE LOCAL MARKET · KURDISH · ARABIC ·",
         ]}
       />
       <About />
+      <Principles />
       <ScrollTypography
         lines={[
-          "REACT · NEXT.JS · TAILWIND · NODE.JS · GSAP · THREE.JS · REACT · NEXT.JS ·",
-          "PYTHON · C++ · HTML · CSS · MATLAB · FLUTTER · PYTHON · C++ · HTML ·",
-          "TENSORFLOW · PYTORCH · OPENCV · FIREBASE · TENSORFLOW · PYTORCH ·",
+          "OUTCOME OVER OUTPUT · SHIP IN WEEKS · LOCAL-FIRST · OUTCOME OVER OUTPUT ·",
+          "PROBLEM · APPROACH · RESULT · ITERATE · PROBLEM · APPROACH · RESULT ·",
+          "AI IS THE MEANS · BUSINESS IS THE GOAL · AI IS THE MEANS · BUSINESS ·",
         ]}
       />
       <Skills />

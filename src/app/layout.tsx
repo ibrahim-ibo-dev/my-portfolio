@@ -14,24 +14,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahim-eng.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ibrahim Hussein | Computer Engineer & AI Developer",
+    default: "Ibrahim Hussein | AI Product Builder for Real Businesses",
     template: "%s | Ibrahim Hussein",
   },
   description:
-    "Portfolio of Ibrahim Hussein — Award-winning Computer Engineering student, AI developer, full-stack engineer, and innovator from Kurdistan Region, Iraq. Co-founder of CSAI, showcased at HITEX 2025.",
+    "Ibrahim Hussein — Kurdish AI systems builder helping real businesses automate customer communication, ordering, and operations with multilingual, RTL-native AI platforms. Co-founder of CSAI, creator of Chat Mart, showcased at HITEX 2025.",
   keywords: [
     "Ibrahim Hussein",
-    "computer engineer",
-    "AI developer",
-    "full-stack developer",
-    "Kurdistan",
-    "portfolio",
-    "React",
-    "Next.js",
-    "Python",
-    "machine learning",
+    "AI product builder",
+    "AI systems for businesses",
+    "Kurdish AI",
+    "multilingual AI",
+    "RTL Kurdish",
+    "customer automation",
+    "WhatsApp AI",
+    "Chat Mart",
     "CSAI",
     "HITEX",
+    "Kurdistan startup",
   ],
   authors: [{ name: "Ibrahim Hussein" }],
   creator: "Ibrahim Hussein",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Ibrahim Hussein | Computer Engineer & AI Developer",
+    title: "Ibrahim Hussein | AI Product Builder for Real Businesses",
     description:
-      "Award-winning Computer Engineering student building AI-powered applications, full-stack solutions, and innovative hardware systems.",
+      "Building AI-powered, multilingual, RTL-native systems that help Kurdish and regional businesses automate customer communication and scale operations.",
     siteName: "Ibrahim Hussein Portfolio",
     locale: "en_US",
     url: "/",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ibrahim Hussein | Computer Engineer & AI Developer",
+    title: "Ibrahim Hussein | AI Product Builder for Real Businesses",
     description:
-      "Award-winning Computer Engineering student building AI-powered applications, full-stack solutions, and innovative hardware systems.",
+      "Building AI-powered, multilingual, RTL-native systems that help Kurdish and regional businesses automate customer communication and scale operations.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -101,7 +101,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Ibrahim Hussein",
-              jobTitle: "Computer Engineer & AI Developer",
+              jobTitle: "AI Product Builder",
               url: "https://ibrahim-eng.dev",
               sameAs: [
                 "https://github.com/ibrahim-ibo-dev",
@@ -109,12 +109,14 @@ export default function RootLayout({
               ],
               alumniOf: "Salahaddin University",
               knowsAbout: [
-                "Artificial Intelligence",
-                "Web Development",
-                "Next.js",
-                "React",
-                "Embedded Systems",
-                "Arduino"
+                "AI Product Development",
+                "Multilingual AI Systems",
+                "Customer Automation",
+                "Kurdish NLP",
+                "RTL Web Platforms",
+                "SaaS Architecture",
+                "Computer Vision",
+                "Business Process Automation"
               ]
             })
           }}

@@ -5,8 +5,9 @@ import gsap from "gsap";
 
 const navLinks = [
   { href: "#about", label: "About", sectionId: "about" },
+  { href: "#principles", label: "Principles", sectionId: "principles" },
   { href: "#skills", label: "Skills", sectionId: "skills" },
-  { href: "#projects", label: "Projects", sectionId: "projects" },
+  { href: "#projects", label: "Case Studies", sectionId: "projects" },
   { href: "#experience", label: "Experience", sectionId: "experience" },
   { href: "#credentials", label: "Achievements", sectionId: "credentials" },
   { href: "#philosophy", label: "Code & Psychology", sectionId: "philosophy" },
@@ -18,25 +19,45 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Intersection Observer for active section tracking
+  // Intersection Observer for active section tracking — uses a single observer
+  // and picks the most-visible section so adjacent sections don't fight.
   useEffect(() => {
     const sectionIds = ["hero", ...navLinks.map((l) => l.sectionId), "contact"];
-    const observers: IntersectionObserver[] = [];
+    const ratios = new Map<string, number>();
+    sectionIds.forEach((id) => ratios.set(id, 0));
 
+    const elements: Element[] = [];
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
+      if (el) elements.push(el);
     });
+    if (elements.length === 0) return;
 
-    return () => observers.forEach((o) => o.disconnect());
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ratios.set(entry.target.id, entry.intersectionRatio);
+        });
+        // Pick the section with the highest visibility right now.
+        let bestId = "";
+        let bestRatio = 0;
+        ratios.forEach((ratio, id) => {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        });
+        if (bestId && bestRatio > 0) setActiveSection(bestId);
+      },
+      {
+        // Sample many thresholds so we get continuous updates.
+        threshold: [0, 0.1, 0.25, 0.4, 0.55, 0.7, 0.85, 1],
+        rootMargin: "-15% 0px -35% 0px",
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
