@@ -13,6 +13,8 @@ import {
   SiLinux,
   SiGithub,
   SiSharp,
+  SiDavinciresolve,
+  SiAudacity,
   SiReact,
   SiNextdotjs,
   SiTypescript,
@@ -23,7 +25,7 @@ import {
   SiLaravel,
   SiPhp,
 } from "react-icons/si";
-import { FaRobot, FaBrain, FaCamera, FaServer, FaDesktop, FaDatabase, FaMicrochip } from "react-icons/fa";
+import { FaRobot, FaBrain, FaCamera, FaHeadphones, FaServer, FaDesktop, FaDatabase, FaMicrochip } from "react-icons/fa";
 
 type Skill = { name: string; icon: React.ReactNode; color: string };
 
@@ -73,18 +75,22 @@ const categories: SkillCategory[] = [
     ],
   },
   {
-    title: "AI & Systems",
+    title: "AI & Tools",
     icon: <FaMicrochip />,
     accent: "#E8C9A0",
     skills: [
       { name: "AI / ML", icon: <FaBrain />, color: "#D4A574" },
-      { name: "LLM APIs", icon: <FaRobot />, color: "#E8C9A0" },
-      { name: "Kurdish NLP", icon: <FaBrain />, color: "#D4A574" },
-      { name: "Computer Vision", icon: <FaCamera />, color: "#61DAFB" },
+      { name: "Robotics", icon: <FaRobot />, color: "#E8C9A0" },
       { name: "Arduino", icon: <SiArduino />, color: "#00979D" },
+      { name: "MATLAB", icon: <FaBrain />, color: "#E16737" },
       { name: "Git", icon: <SiGit />, color: "#F05032" },
       { name: "GitHub", icon: <SiGithub />, color: "#ffffff" },
       { name: "Linux", icon: <SiLinux />, color: "#FCC624" },
+      { name: "DaVinci", icon: <SiDavinciresolve />, color: "#E44D26" },
+      { name: "Photoshop", icon: <FaCamera />, color: "#31A8FF" },
+      { name: "Audition", icon: <FaHeadphones />, color: "#9999FF" },
+      { name: "Audacity", icon: <SiAudacity />, color: "#0000CC" },
+      { name: "React Dev", icon: <SiReact />, color: "#61DAFB" },
     ],
   },
 ];
@@ -108,14 +114,11 @@ export default function Skills() {
           className="text-center mb-14"
         >
           <span className="overline text-accent/70">
-            {"// The Toolkit"}
+            {"// Tech Stack"}
           </span>
           <h2 id="skills-heading" className="text-heading text-gradient mt-4">
-            What I Build With
+            Skills &amp; Technologies
           </h2>
-          <p className="text-body text-muted mt-4 max-w-xl mx-auto leading-relaxed">
-            Tools are a means, not a portfolio. These are the technologies I reach for when shipping AI agents, multilingual platforms, and business automation &mdash; chosen because they ship fast and run reliably for real clients.
-          </p>
           <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mx-auto mt-6" />
         </motion.div>
 

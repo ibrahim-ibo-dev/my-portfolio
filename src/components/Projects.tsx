@@ -76,27 +76,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 {project.status}
               </span>
             </div>
-            <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-3">
+            <p className="text-sm text-gray-400 mb-4 leading-relaxed line-clamp-2">
               {project.description}
             </p>
-
-            {(project.problem || project.impact) && (
-              <div className="space-y-2 mb-4 pl-3 border-l border-accent/20">
-                {project.problem && (
-                  <div className="flex gap-2 text-[11px] leading-relaxed">
-                    <span className="font-mono uppercase tracking-wider text-accent/70 shrink-0">Problem</span>
-                    <span className="text-gray-500 line-clamp-2">{project.problem}</span>
-                  </div>
-                )}
-                {project.impact && (
-                  <div className="flex gap-2 text-[11px] leading-relaxed">
-                    <span className="font-mono uppercase tracking-wider text-accent-light/80 shrink-0">Result</span>
-                    <span className="text-gray-400 line-clamp-2">{project.impact}</span>
-                  </div>
-                )}
-              </div>
-            )}
-
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <span
@@ -165,12 +147,11 @@ export default function Projects() {
               {"// My Projects"}
             </span>
             <h2 id="projects-heading" className="text-heading text-gradient mt-4">
-              Problems I&apos;ve Solved
+              Featured Projects
             </h2>
             <p className="text-body text-muted mt-4 max-w-xl leading-relaxed">
-              Each project below is a real business problem &mdash; not a demo.
-              Multilingual AI for customer support, RTL Kurdish operations
-              platforms, and computer vision systems shipped for real clients.
+              A curated selection of my strongest work. From AI platforms to
+              smart hardware — each built to solve meaningful problems.
             </p>
             <div className="w-16 h-[2px] bg-gradient-to-r from-accent to-accent-light rounded-full mt-6" />
           </div>

@@ -47,8 +47,8 @@ export default function Footer() {
           </div>
 
           {/* Tagline */}
-          <p className="text-caption text-subtle font-mono text-center sm:text-right max-w-[16rem]">
-            Building AI systems for real businesses
+          <p className="text-caption text-subtle font-mono">
+            Crafted with precision
           </p>
         </div>
       </div>
