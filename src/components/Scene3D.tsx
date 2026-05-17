@@ -161,22 +161,23 @@ const fragShader = `
   }
 `;
 
-// Rich CSS fallback that visually matches the WebGL warm golden aurora shader
+// Rich CSS fallback — matches the warm golden aurora WebGL shader exactly
 const MOBILE_CSS_STYLE = `
   .scene3d-mobile {
     background:
-      radial-gradient(ellipse 100% 70% at 50% 70%, rgba(180,115,50,0.28) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 45% at 50% 65%, rgba(212,165,116,0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 120% 20% at 50% 72%, rgba(200,140,60,0.22) 0%, transparent 50%),
-      radial-gradient(ellipse 40% 30% at 70% 80%, rgba(160,100,40,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 35% 25% at 25% 75%, rgba(140,90,40,0.08) 0%, transparent 60%),
-      radial-gradient(circle at 50% 68%, rgba(130,85,35,0.10) 0%, transparent 40%),
-      linear-gradient(to top, #0A0A0F 0%, #100e0a 30%, #0d0b08 55%, #0A0A0F 100%);
+      radial-gradient(ellipse 130% 50% at 50% 80%, rgba(212,165,116,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 40% at 50% 75%, rgba(180,120,55,0.30) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 30% at 50% 70%, rgba(200,145,70,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse 140% 15% at 50% 78%, rgba(190,130,55,0.28) 0%, transparent 45%),
+      radial-gradient(ellipse 50% 25% at 70% 85%, rgba(170,110,45,0.15) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 25% at 25% 80%, rgba(150,95,40,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 60% at 50% 60%, rgba(100,65,25,0.12) 0%, transparent 65%),
+      linear-gradient(to top, #12100a 0%, #110f0a 25%, #0d0b08 50%, #0A0A0F 75%, #0A0A0F 100%);
     animation: scene3d-breathe 8s ease-in-out infinite;
   }
   @keyframes scene3d-breathe {
     0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.12); }
+    50% { filter: brightness(1.15); }
   }
 `;
 
