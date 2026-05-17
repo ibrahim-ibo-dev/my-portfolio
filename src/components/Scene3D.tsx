@@ -161,26 +161,6 @@ const fragShader = `
   }
 `;
 
-// Rich CSS fallback — matches the warm golden aurora WebGL shader exactly
-const MOBILE_CSS_STYLE = `
-  .scene3d-mobile {
-    background:
-      radial-gradient(ellipse 130% 50% at 50% 80%, rgba(212,165,116,0.35) 0%, transparent 60%),
-      radial-gradient(ellipse 90% 40% at 50% 75%, rgba(180,120,55,0.30) 0%, transparent 55%),
-      radial-gradient(ellipse 60% 30% at 50% 70%, rgba(200,145,70,0.25) 0%, transparent 50%),
-      radial-gradient(ellipse 140% 15% at 50% 78%, rgba(190,130,55,0.28) 0%, transparent 45%),
-      radial-gradient(ellipse 50% 25% at 70% 85%, rgba(170,110,45,0.15) 0%, transparent 55%),
-      radial-gradient(ellipse 45% 25% at 25% 80%, rgba(150,95,40,0.12) 0%, transparent 55%),
-      radial-gradient(ellipse 80% 60% at 50% 60%, rgba(100,65,25,0.12) 0%, transparent 65%),
-      linear-gradient(to top, #12100a 0%, #110f0a 25%, #0d0b08 50%, #0A0A0F 75%, #0A0A0F 100%);
-    animation: scene3d-breathe 8s ease-in-out infinite;
-  }
-  @keyframes scene3d-breathe {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.15); }
-  }
-`;
-
 export default function Scene3D() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -190,18 +170,13 @@ export default function Scene3D() {
 
     // Skip 3D rendering for users who prefer reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    // Use CSS fallback on mobile/touch devices to avoid heavy Three.js overhead
-    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
-
-    if (prefersReducedMotion || isMobile) {
-      // Inject CSS animation styles
-      const styleEl = document.createElement("style");
-      styleEl.textContent = MOBILE_CSS_STYLE;
-      document.head.appendChild(styleEl);
-      container.classList.add("scene3d-mobile");
+    if (prefersReducedMotion) {
+      container.style.background = "radial-gradient(ellipse at 50% 40%, #1a1510 0%, #0A0A0F 70%)";
       container.setAttribute("aria-hidden", "true");
-      return () => { styleEl.remove(); };
+      return;
     }
+
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
@@ -223,8 +198,8 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    // Use native pixel ratio (capped at 2) so particles render as smooth dots
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Mobile: lower pixel ratio for GPU savings; Desktop: native (capped at 2)
+    renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -245,7 +220,8 @@ export default function Scene3D() {
     let raf = 0;
     const clock = new THREE.Clock();
     let lastFrame = 0;
-    const frameInterval = 1000 / 30;
+    // Mobile: 20fps to save battery/GPU; Desktop: 30fps
+    const frameInterval = 1000 / (isMobile ? 20 : 30);
     const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
       if (!isVisible) return;

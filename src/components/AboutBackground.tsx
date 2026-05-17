@@ -112,14 +112,6 @@ const fragShader = `
   }
 `;
 
-// Rich CSS fallback for mobile — matches the warm nebula shader look
-const ABOUT_MOBILE_BG = [
-  "radial-gradient(ellipse 80% 55% at 50% 45%, rgba(140,90,40,0.2) 0%, transparent 65%)",
-  "radial-gradient(ellipse 50% 35% at 20% 75%, rgba(120,75,30,0.12) 0%, transparent 60%)",
-  "radial-gradient(ellipse 45% 30% at 75% 30%, rgba(100,65,30,0.08) 0%, transparent 55%)",
-  "linear-gradient(to top, #0A0A0F 0%, #0e0c09 40%, #0A0A0F 100%)",
-].join(", ");
-
 export default function AboutBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -127,12 +119,7 @@ export default function AboutBackground() {
     const container = containerRef.current;
     if (!container) return;
 
-    // Use CSS fallback on mobile to avoid heavy Three.js
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
-    if (isMobile) {
-      container.style.background = ABOUT_MOBILE_BG;
-      return;
-    }
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
@@ -153,7 +140,7 @@ export default function AboutBackground() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -168,7 +155,7 @@ export default function AboutBackground() {
     const clock = new THREE.Clock();
     let isVisible = false;
     let lastFrame = 0;
-    const frameInterval = 1000 / 30;
+    const frameInterval = 1000 / (isMobile ? 20 : 30);
 
     const observer = new IntersectionObserver(
       ([entry]) => { isVisible = entry.isIntersecting; },
