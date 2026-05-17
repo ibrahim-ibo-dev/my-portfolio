@@ -14,7 +14,7 @@ const vertShader = `
 
 // Domain-warped FBM aurora fragment shader
 const fragShader = `
-  precision mediump float;
+  precision highp float;
   uniform float uTime;
   uniform vec2 uResolution;
   varying vec2 vUv;
@@ -196,8 +196,8 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    // Increase pixel ratio slightly on mobile to prevent "square" stars (minimum 0.5)
-    renderer.setPixelRatio(Math.max(0.5, Math.min(window.devicePixelRatio * 0.5, 1)));
+    // Use native pixel ratio (capped at 2) so particles render as smooth dots on mobile
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
