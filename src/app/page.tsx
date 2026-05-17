@@ -1,6 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CurvedText from "@/components/CurvedText";
@@ -8,17 +8,17 @@ import ScrollTypography from "@/components/ScrollTypography";
 import LoadingScreen from "@/components/LoadingScreen";
 
 // Lazy load below-fold components to reduce initial bundle
-const About = dynamic(() => import("@/components/About"));
-const Skills = dynamic(() => import("@/components/Skills"));
-const Projects = dynamic(() => import("@/components/Projects"));
-const Experience = dynamic(() => import("@/components/Experience"));
-const Credentials = dynamic(() => import("@/components/Credentials"));
-const InteractivePhilosophy = dynamic(() => import("@/components/InteractivePhilosophy"), {
+const About = nextDynamic(() => import("@/components/About"));
+const Skills = nextDynamic(() => import("@/components/Skills"));
+const Projects = nextDynamic(() => import("@/components/Projects"));
+const Experience = nextDynamic(() => import("@/components/Experience"));
+const Credentials = nextDynamic(() => import("@/components/Credentials"));
+const InteractivePhilosophy = nextDynamic(() => import("@/components/InteractivePhilosophy"), {
   ssr: false,
   loading: () => <div className="min-h-[50vh]" />,
 });
-const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"));
+const Contact = nextDynamic(() => import("@/components/Contact"), { ssr: false });
+const Footer = nextDynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   return (

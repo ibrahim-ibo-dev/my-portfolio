@@ -161,6 +161,14 @@ const fragShader = `
   }
 `;
 
+// CSS fallback that visually matches the WebGL shader output
+const MOBILE_CSS_BG = [
+  "radial-gradient(ellipse 80% 60% at 50% 35%, rgba(140,90,40,0.18) 0%, transparent 70%)",
+  "radial-gradient(ellipse 50% 40% at 70% 75%, rgba(100,65,30,0.1) 0%, transparent 70%)",
+  "radial-gradient(ellipse 90% 50% at 50% 28%, rgba(130,85,35,0.12) 0%, transparent 60%)",
+  "linear-gradient(to top, #0A0A0F 0%, #0d0c08 40%, #0A0A0F 100%)",
+].join(", ");
+
 export default function Scene3D() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -170,8 +178,11 @@ export default function Scene3D() {
 
     // Skip 3D rendering for users who prefer reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      container.style.background = "radial-gradient(ellipse at 50% 40%, #1a1510 0%, #0A0A0F 70%)";
+    // Use CSS fallback on mobile/touch devices to avoid heavy Three.js overhead
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+
+    if (prefersReducedMotion || isMobile) {
+      container.style.background = MOBILE_CSS_BG;
       container.setAttribute("aria-hidden", "true");
       return;
     }
@@ -196,7 +207,7 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    // Use native pixel ratio (capped at 2) so particles render as smooth dots on mobile
+    // Use native pixel ratio (capped at 2) so particles render as smooth dots
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);

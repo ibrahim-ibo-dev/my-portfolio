@@ -12,8 +12,10 @@ export default function LoadingScreen() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Skip loading screen on mobile for faster LCP
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isMobile) {
       setVisible(false);
       return;
     }
