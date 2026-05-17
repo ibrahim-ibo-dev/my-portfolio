@@ -22,7 +22,7 @@ export default function LoadingScreen() {
       onComplete: () => {
         gsap.to(containerRef.current, {
           opacity: 0,
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.inOut",
           onComplete: () => setVisible(false),
         });
@@ -32,21 +32,21 @@ export default function LoadingScreen() {
     tl.fromTo(
       logoRef.current,
       { scale: 0.5, opacity: 0, filter: "blur(10px)" },
-      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "back.out(1.7)" }
+      { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "back.out(1.7)" }
     )
       .fromTo(
         lineRef.current,
         { scaleX: 0 },
-        { scaleX: 1, duration: 1, ease: "power2.inOut" },
-        "-=0.3"
+        { scaleX: 1, duration: 0.5, ease: "power2.inOut" },
+        "-=0.15"
       )
       .fromTo(
         textRef.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.4 },
-        "-=0.5"
+        { opacity: 1, y: 0, duration: 0.2 },
+        "-=0.25"
       )
-      .to({}, { duration: 0.4 });
+      .to({}, { duration: 0.15 });
   }, []);
 
   if (!visible) return null;

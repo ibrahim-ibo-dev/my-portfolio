@@ -7,6 +7,8 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-space-grotesk",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahim-eng.dev";
@@ -94,6 +96,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className={`${spaceGrotesk.variable} antialiased`}>
         {/* SEO JSON-LD Structured Data */}
         <script
