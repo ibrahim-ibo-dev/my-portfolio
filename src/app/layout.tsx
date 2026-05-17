@@ -84,6 +84,7 @@ export const metadata: Metadata = {
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import DeveloperEasterEgg from "@/components/DeveloperEasterEgg";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -122,6 +123,7 @@ export default function RootLayout({
         <CustomCursor />
         <DeveloperEasterEgg />
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
