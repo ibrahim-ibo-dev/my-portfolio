@@ -57,9 +57,11 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!navRef.current) return;
+    
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      if (navRef.current) navRef.current.style.opacity = "1";
+      navRef.current.style.opacity = "1";
     } else {
       gsap.fromTo(
         navRef.current,
