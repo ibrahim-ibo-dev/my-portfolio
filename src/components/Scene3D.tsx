@@ -161,13 +161,24 @@ const fragShader = `
   }
 `;
 
-// CSS fallback that visually matches the WebGL shader output
-const MOBILE_CSS_BG = [
-  "radial-gradient(ellipse 80% 60% at 50% 35%, rgba(140,90,40,0.18) 0%, transparent 70%)",
-  "radial-gradient(ellipse 50% 40% at 70% 75%, rgba(100,65,30,0.1) 0%, transparent 70%)",
-  "radial-gradient(ellipse 90% 50% at 50% 28%, rgba(130,85,35,0.12) 0%, transparent 60%)",
-  "linear-gradient(to top, #0A0A0F 0%, #0d0c08 40%, #0A0A0F 100%)",
-].join(", ");
+// Rich CSS fallback that visually matches the WebGL warm golden aurora shader
+const MOBILE_CSS_STYLE = `
+  .scene3d-mobile {
+    background:
+      radial-gradient(ellipse 100% 70% at 50% 70%, rgba(180,115,50,0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 45% at 50% 65%, rgba(212,165,116,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 120% 20% at 50% 72%, rgba(200,140,60,0.22) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 70% 80%, rgba(160,100,40,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 25% at 25% 75%, rgba(140,90,40,0.08) 0%, transparent 60%),
+      radial-gradient(circle at 50% 68%, rgba(130,85,35,0.10) 0%, transparent 40%),
+      linear-gradient(to top, #0A0A0F 0%, #100e0a 30%, #0d0b08 55%, #0A0A0F 100%);
+    animation: scene3d-breathe 8s ease-in-out infinite;
+  }
+  @keyframes scene3d-breathe {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.12); }
+  }
+`;
 
 export default function Scene3D() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -182,9 +193,13 @@ export default function Scene3D() {
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
     if (prefersReducedMotion || isMobile) {
-      container.style.background = MOBILE_CSS_BG;
+      // Inject CSS animation styles
+      const styleEl = document.createElement("style");
+      styleEl.textContent = MOBILE_CSS_STYLE;
+      document.head.appendChild(styleEl);
+      container.classList.add("scene3d-mobile");
       container.setAttribute("aria-hidden", "true");
-      return;
+      return () => { styleEl.remove(); };
     }
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);

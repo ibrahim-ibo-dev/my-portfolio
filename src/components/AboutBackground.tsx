@@ -112,11 +112,12 @@ const fragShader = `
   }
 `;
 
-// CSS fallback for mobile — matches the warm nebula shader look
-const MOBILE_CSS_BG = [
-  "radial-gradient(ellipse 70% 50% at 50% 45%, rgba(100,65,30,0.15) 0%, transparent 70%)",
-  "radial-gradient(ellipse 40% 35% at 20% 75%, rgba(90,55,25,0.1) 0%, transparent 70%)",
-  "linear-gradient(to top, #0A0A0F 0%, #0c0b08 50%, #0A0A0F 100%)",
+// Rich CSS fallback for mobile — matches the warm nebula shader look
+const ABOUT_MOBILE_BG = [
+  "radial-gradient(ellipse 80% 55% at 50% 45%, rgba(140,90,40,0.2) 0%, transparent 65%)",
+  "radial-gradient(ellipse 50% 35% at 20% 75%, rgba(120,75,30,0.12) 0%, transparent 60%)",
+  "radial-gradient(ellipse 45% 30% at 75% 30%, rgba(100,65,30,0.08) 0%, transparent 55%)",
+  "linear-gradient(to top, #0A0A0F 0%, #0e0c09 40%, #0A0A0F 100%)",
 ].join(", ");
 
 export default function AboutBackground() {
@@ -129,7 +130,7 @@ export default function AboutBackground() {
     // Use CSS fallback on mobile to avoid heavy Three.js
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
     if (isMobile) {
-      container.style.background = MOBILE_CSS_BG;
+      container.style.background = ABOUT_MOBILE_BG;
       return;
     }
 
