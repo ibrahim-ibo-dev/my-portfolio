@@ -18,25 +18,42 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Intersection Observer for active section tracking
+  // Active section tracking based on scroll position
+  // More reliable than intersection ratio for large sections
   useEffect(() => {
     const sectionIds = ["hero", ...navLinks.map((l) => l.sectionId), "contact"];
-    const observers: IntersectionObserver[] = [];
+    
+    const updateActiveSection = () => {
+      // Get viewport center point
+      const scrollY = window.scrollY;
+      const viewportCenter = scrollY + window.innerHeight / 2;
+      
+      // Find which section contains the viewport center
+      let currentSection = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        
+        const rect = el.getBoundingClientRect();
+        const elementTop = scrollY + rect.top;
+        const elementBottom = elementTop + rect.height;
+        
+        if (viewportCenter >= elementTop && viewportCenter < elementBottom) {
+          currentSection = id;
+          break;
+        }
+      }
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { rootMargin: "-40% 0px -55% 0px" }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
+    // Update on scroll
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    
+    return () => window.removeEventListener("scroll", updateActiveSection);
   }, []);
 
   useEffect(() => {

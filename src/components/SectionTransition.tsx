@@ -13,7 +13,7 @@ interface Props {
   height?: string;
 }
 
-export default function SectionTransition({ variant = "default", height = "h-32 md:h-40" }: Props) {
+export default function SectionTransition({ variant = "default", height = "h-20 md:h-28" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
