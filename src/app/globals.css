@@ -290,8 +290,14 @@ textarea:focus {
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(212, 165, 116, 0.35);
-  color: #E8E4E0;
+  background: rgba(212, 165, 116, 0.4);
+  color: #FFF5E6;
+  text-shadow: 0 0 12px rgba(212, 165, 116, 0.4);
+}
+::-moz-selection {
+  background: rgba(212, 165, 116, 0.4);
+  color: #FFF5E6;
+  text-shadow: 0 0 12px rgba(212, 165, 116, 0.4);
 }
 
 /* ── Perspective ── */

@@ -9,20 +9,49 @@ export default function DeveloperEasterEgg() {
 
     // ASCII Art
     const asciiArt = `
-  ___ _               _     _          _  _                     _       
- |_ _| |__ _ _ __ _| |_ (_)_ __     | || |_  _ ______ ___ (_)_ _    
-  | || '_ \\ '_/ _\` | ' \\| | '  \\    | __ | || (_-<_-</ -_) | ' \\   
- |___|_.__/_| \\__,_|_||_|_|_|_|_|   |_||_|\\_,_/__/__/\\___|_|_||_|  
-                                                                    
+  ╦┌┐ ┬─┐┌─┐┬ ┬┬┌┬┐  ╦ ╦┬ ┬┌─┐┌─┐┌─┐┬┌┐┌
+  ║├┴┐├┬┘├─┤├─┤││││  ╠═╣│ │└─┐└─┐├┤ ││││
+  ╩└─┘┴└─┴ ┴┴ ┴┴┴ ┴  ╩ ╩└─┘└─┘└─┘└─┘┴┘└┘
 `;
-    
+
     console.log(
       "%c" + asciiArt,
-      "color: #D4A574; font-weight: bold; font-family: monospace;"
+      "color: #D4A574; font-weight: bold; font-family: monospace; font-size: 11px; line-height: 1.2;"
+    );
+
+    console.log(
+      "%c👋 Hey, curious developer.",
+      "color: #D4A574; font-size: 16px; font-weight: bold; padding: 4px 0;"
+    );
+
+    console.log(
+      "%cYou're inspecting my code — I respect that.\n%cI built this with: Next.js 14 · TypeScript · Three.js · GSAP · Framer Motion · Tailwind",
+      "color: #E8E4E0; font-size: 13px; line-height: 1.6;",
+      "color: #888; font-size: 12px; line-height: 1.6; font-family: monospace;"
+    );
+
+    console.log(
+      "%c\n💼 Hiring? Collaborating? Just want to chat?",
+      "color: #D4A574; font-size: 13px; font-weight: 600;"
     );
     console.log(
-      "%cWelcome to the source. You're inspecting my code, aren't you?\nIf you are a developer looking for a challenge or just want to connect, reach out!\n\nHint: Try typing 'matrix' anywhere on the page...",
-      "color: #FFF; font-size: 14px; padding: 10px; background: #0A0A0F; border-left: 4px solid #D4A574;"
+      "%c→ ibrahimhuseein842@gmail.com\n→ github.com/ibrahim-ibo-dev\n→ linkedin.com/in/ibrahim-hussein-b080712b7",
+      "color: #B8956F; font-size: 12px; font-family: monospace; line-height: 1.8;"
+    );
+
+    console.log(
+      "%c\n🎮 Easter egg: type 'matrix' anywhere to activate hidden mode.",
+      "color: #888; font-size: 11px; font-style: italic;"
+    );
+
+    // Security warning (Facebook-style)
+    console.log(
+      "%c⚠️  STOP",
+      "color: #ff4444; font-size: 32px; font-weight: bold; text-shadow: 2px 2px 0 #000;"
+    );
+    console.log(
+      "%cThis is a browser feature for developers. If someone told you to copy/paste something here to \"hack\" or \"unlock\" something, it's a scam — you would be giving them access to your account.",
+      "color: #ff8888; font-size: 13px; line-height: 1.6; max-width: 600px;"
     );
 
     // Typing sequence easter egg

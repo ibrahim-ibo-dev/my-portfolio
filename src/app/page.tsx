@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import CurvedText from "@/components/CurvedText";
 import ScrollTypography from "@/components/ScrollTypography";
 import LoadingScreen from "@/components/LoadingScreen";
+import SectionTransition from "@/components/SectionTransition";
 
 // Lazy load below-fold components to reduce initial bundle
 const About = nextDynamic(() => import("@/components/About"));
@@ -43,6 +44,7 @@ export default function Home() {
         ]}
       />
       <Skills />
+      <SectionTransition variant="warm" />
       <Projects />
       <ScrollTypography
         lines={[
@@ -52,8 +54,11 @@ export default function Home() {
         ]}
       />
       <Experience />
+      <SectionTransition variant="default" />
       <Credentials />
+      <SectionTransition variant="cool" />
       <InteractivePhilosophy />
+      <SectionTransition variant="warm" />
       <Contact />
       <Footer />
     </main>

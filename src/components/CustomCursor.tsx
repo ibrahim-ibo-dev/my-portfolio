@@ -6,6 +6,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [clickScale, setClickScale] = useState(1);
+  const [label, setLabel] = useState<string>("");
 
   // Tiny dot exactly on cursor (Instant, no spring)
   const dotX = useMotionValue(-100);
@@ -33,17 +34,31 @@ export default function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Check if hovering over interactive elements
-      if (
-        target.tagName.toLowerCase() === "a" ||
-        target.tagName.toLowerCase() === "button" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        window.getComputedStyle(target).cursor === "pointer"
-      ) {
+      const interactive =
+        target.closest<HTMLElement>("a, button, [data-cursor], [role='button']") ||
+        (window.getComputedStyle(target).cursor === "pointer" ? target : null);
+
+      if (interactive) {
         setIsHovering(true);
+        // Determine contextual label
+        const customLabel = interactive.getAttribute("data-cursor");
+        if (customLabel) {
+          setLabel(customLabel);
+        } else if (interactive.tagName.toLowerCase() === "a") {
+          const href = interactive.getAttribute("href") || "";
+          if (href.startsWith("mailto:")) setLabel("Email");
+          else if (href.startsWith("tel:") || href.includes("wa.me")) setLabel("Call");
+          else if (href.startsWith("#")) setLabel("Go");
+          else if (interactive.getAttribute("target") === "_blank") setLabel("Open");
+          else setLabel("View");
+        } else if (interactive.tagName.toLowerCase() === "button") {
+          setLabel("Click");
+        } else {
+          setLabel("");
+        }
       } else {
         setIsHovering(false);
+        setLabel("");
       }
     };
 
@@ -79,9 +94,9 @@ export default function CustomCursor() {
         .hide-native-cursor, .hide-native-cursor * { cursor: none !important; }
       `}} />
       
-      {/* Outer Ring */}
+      {/* Outer Ring with Label */}
       <motion.div
-        className="pointer-events-none"
+        className="pointer-events-none flex items-center justify-center"
         style={{
           position: "fixed",
           top: 0,
@@ -89,7 +104,7 @@ export default function CustomCursor() {
           width: "32px",
           height: "32px",
           borderRadius: "50%",
-          borderColor: "rgba(212, 165, 116, 0.7)",
+          border: "1.5px solid rgba(212, 165, 116, 0.7)",
           x: ringX,
           y: ringY,
           translateX: "-50%",
@@ -97,12 +112,33 @@ export default function CustomCursor() {
           zIndex: 9999,
         }}
         animate={{
-          scale: isHovering ? 1.8 * clickScale : 1 * clickScale,
-          backgroundColor: isHovering ? "rgba(212, 165, 116, 0.15)" : "transparent",
-          borderWidth: isHovering ? "1px" : "1.5px",
+          scale: isHovering ? (label ? 2.4 : 1.8) * clickScale : 1 * clickScale,
+          backgroundColor: isHovering ? "rgba(212, 165, 116, 0.18)" : "transparent",
+          borderColor: isHovering ? "rgba(212, 165, 116, 0.9)" : "rgba(212, 165, 116, 0.7)",
         }}
-        transition={{ type: "tween", duration: 0.15 }}
-      />
+        transition={{ type: "tween", duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {/* Contextual Label */}
+        {label && isHovering && (
+          <motion.span
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 / 2.4 }}
+            exit={{ opacity: 0, scale: 0.6 }}
+            transition={{ duration: 0.15 }}
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              color: "#D4A574",
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              fontFamily: "var(--font-space-grotesk), sans-serif",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {label}
+          </motion.span>
+        )}
+      </motion.div>
 
       {/* Inner Dot */}
       <motion.div
