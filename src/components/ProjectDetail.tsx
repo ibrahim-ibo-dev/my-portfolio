@@ -58,7 +58,7 @@ export default function ProjectDetail({ project }: Props) {
         <div className="absolute inset-0 bg-[#12121A] z-0" />
         <Image
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} — Project by Ibrahim Hussein, Computer Engineer`}
           fill
           className="object-cover opacity-40 z-[5]"
           priority

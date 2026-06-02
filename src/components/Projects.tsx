@@ -32,7 +32,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div className="absolute inset-0 bg-[#12121A] z-0" />
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} — Project by Ibrahim Hussein`}
               fill
               loading="lazy"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

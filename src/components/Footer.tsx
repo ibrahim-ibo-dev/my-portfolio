@@ -51,6 +51,30 @@ export default function Footer() {
             Crafted with precision
           </p>
         </div>
+
+        {/* SEO-rich content for crawlers — visually hidden but indexable */}
+        <div className="sr-only" role="contentinfo" itemScope itemType="https://schema.org/Person">
+          <h2>About Ibrahim Hussein</h2>
+          <p itemProp="name">Ibrahim Hussein</p>
+          <p itemProp="jobTitle">Computer Engineer & AI Developer</p>
+          <p itemProp="description">
+            Ibrahim Hussein is an award-winning Computer Engineering student at Salahaddin University-Erbil, 
+            Kurdistan Region, Iraq. He specializes in artificial intelligence, full-stack web development, 
+            and embedded systems. Co-founder of CSAI (Customer Service AI), showcased at HITEX Technology 
+            Expo 2025. He builds production-grade applications serving real businesses in Kurdistan and Iraq.
+          </p>
+          <p>Skills: Python, JavaScript, TypeScript, React, Next.js, PHP, C++, TensorFlow, PyTorch, 
+            OpenCV, Arduino, Three.js, GSAP, TailwindCSS, MySQL, Node.js, Machine Learning, 
+            Natural Language Processing, Computer Vision, Kurdish NLP</p>
+          <p itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+            <span itemProp="addressLocality">Erbil</span>, 
+            <span itemProp="addressRegion">Kurdistan Region</span>, 
+            <span itemProp="addressCountry">Iraq</span>
+          </p>
+          <a itemProp="url" href="https://ibrahim-eng.dev">ibrahim-eng.dev</a>
+          <a itemProp="sameAs" href="https://github.com/ibrahim-ibo-dev">GitHub</a>
+          <a itemProp="sameAs" href="https://www.linkedin.com/in/ibrahim-hussein-b080712b7/">LinkedIn</a>
+        </div>
       </div>
     </footer>
   );

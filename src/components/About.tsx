@@ -113,7 +113,7 @@ export default function About() {
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-accent/15 shadow-2xl shadow-black/40">
                 <Image
                   src="/images/profile.jpg"
-                  alt="Ibrahim Hussein"
+                  alt="Ibrahim Hussein — Computer Engineer and AI Developer from Kurdistan Region, Iraq"
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 280px, 320px"
