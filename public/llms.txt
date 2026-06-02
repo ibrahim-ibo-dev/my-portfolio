@@ -1,0 +1,68 @@
+# Ibrahim Hussein — Computer Engineer & AI Developer
+
+> Award-winning Computer Engineering student from Kurdistan Region, Iraq. Co-founder of CSAI. Full-stack developer, AI specialist, and hardware innovator. Showcased at HITEX 2025.
+
+## About
+
+Ibrahim Hussein is a Computer Engineering student at Salahaddin University-Erbil, specializing in AI development, full-stack web engineering, and embedded systems. He co-founded CSAI (Customer Service AI), which was showcased at HITEX Technology Expo 2025. He builds production-grade applications serving real businesses across Kurdistan.
+
+## Skills & Expertise
+
+- **Languages**: Python, JavaScript/TypeScript, PHP, C++, HTML/CSS, SQL
+- **AI/ML**: TensorFlow, PyTorch, OpenCV, MediaPipe, scikit-learn, Google Gemini API, NLP
+- **Web**: React, Next.js, Node.js, Express, TailwindCSS, Three.js, GSAP
+- **Backend**: PHP, MySQL, PostgreSQL, REST APIs, WebSocket, PWA
+- **Hardware**: Arduino, Raspberry Pi, ESP32, Embedded Systems, IoT
+- **Tools**: Git, Docker, Linux, Vercel, Firebase
+
+## Notable Projects
+
+### Chat Mart — Omni-Channel SaaS
+Multi-company AI marketplace with 5 messaging channels (WhatsApp, Instagram, Telegram, Viber, Messenger). Features Kurdish TTS voice replies, RBAC with 17+ permissions, reservation system, and PWA.
+- URL: https://chat-mart.com
+- Case Study: https://case-study.ibrahim-eng.dev/chat-mart
+
+### CSAI — Customer Service AI
+AI-powered customer service chatbot that understands Kurdish, Arabic, and English. Multi-dialect NLP, real-time responses, multi-provider WhatsApp integration.
+- Case Study: https://case-study.ibrahim-eng.dev/csai
+
+### Ashti Library
+First Kurdish bookstore platform with AI-powered book recommendations via Gemini API, admin dashboard, RTL Kurdish support, and WhatsApp ordering.
+- URL: https://ashtilibrary.com
+- Case Study: https://case-study.ibrahim-eng.dev/ashti-library
+
+### True Prence — Face Recognition Attendance
+Face recognition attendance system identifying up to 20 students per frame simultaneously. CNN (GPU) or HOG (CPU) detection, SQLite storage, Excel/PDF exports.
+- GitHub: https://github.com/ibrahim-ibo-dev/Attendance-System
+- Case Study: https://case-study.ibrahim-eng.dev/attendance
+
+### Signed Language Recognition
+Real-time gesture recognition using MediaPipe hand/body tracking with custom-trained KNN classifier. Incremental learning, 3x data augmentation, temporal dynamics.
+- GitHub: https://github.com/ibrahim-ibo-dev/AI-Sign-Language
+- Case Study: https://case-study.ibrahim-eng.dev/gestures
+
+### Bradaran & Dyari — Car Dealership Systems
+Full car dealership management systems with inventory tracking, customer management, RBAC, PWA, RTL Kurdish interface, and installment tracking.
+- Case Study: https://case-study.ibrahim-eng.dev/xara
+
+## Achievements
+
+- 1st Place — Kurdistan Region CTF Competition
+- Showcased CSAI at HITEX Technology Expo 2025
+- NICER Club Certificate — Home System Project
+- Cihan University Coding Competition
+- CodeSignal Advanced Certification
+- AI Training Program Certificate
+
+## Contact
+
+- Website: https://ibrahim-eng.dev
+- Email: ibrahimhuseein842@gmail.com
+- GitHub: https://github.com/ibrahim-ibo-dev
+- LinkedIn: https://www.linkedin.com/in/ibrahim-hussein-b080712b7/
+
+## Links
+
+- Portfolio: https://ibrahim-eng.dev
+- Case Studies: https://case-study.ibrahim-eng.dev
+- Lab/Experiments: https://lab.ibrahim-eng.dev

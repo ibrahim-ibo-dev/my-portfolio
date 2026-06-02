@@ -1,0 +1,130 @@
+# Ibrahim Hussein — Complete Professional Profile
+
+> Computer Engineer & AI Developer | Kurdistan Region, Iraq | Salahaddin University-Erbil
+
+## Professional Summary
+
+Ibrahim Hussein is an award-winning Computer Engineering student at Salahaddin University-Erbil, Kurdistan Region, Iraq. He specializes in artificial intelligence, full-stack web development, and embedded systems. As co-founder of CSAI (Customer Service AI), he showcased the platform at HITEX Technology Expo 2025. He builds production-grade applications serving real businesses across Kurdistan and Iraq.
+
+## Technical Expertise
+
+### Programming Languages
+- Python (Advanced) — ML/AI, automation, data science
+- JavaScript/TypeScript (Advanced) — React, Next.js, Node.js
+- PHP (Advanced) — Backend systems, SaaS platforms
+- C++ (Intermediate) — Embedded systems, Arduino
+- SQL (Advanced) — MySQL, PostgreSQL, SQLite
+- HTML/CSS (Expert) — Responsive, RTL, accessibility
+
+### AI & Machine Learning
+- TensorFlow & PyTorch — Deep learning models
+- OpenCV — Computer vision, face recognition
+- MediaPipe — Hand/body/face tracking
+- scikit-learn — Classical ML algorithms
+- Google Gemini API — Generative AI integration
+- NLP — Multi-dialect Kurdish, Arabic, English processing
+- Kurdish TTS — Text-to-speech in Kurdish dialects
+
+### Web Development
+- React & Next.js 14 — Server components, App Router
+- Three.js & WebGL — 3D graphics, GLSL shaders
+- GSAP & Framer Motion — Advanced animations
+- TailwindCSS — Utility-first styling
+- PWA — Progressive Web Apps with push notifications
+- REST APIs & WebSocket — Real-time communication
+
+### Backend & Infrastructure
+- PHP/MySQL — Production SaaS platforms
+- Node.js/Express — API development
+- WhatsApp Business API — Multi-provider integration
+- RBAC — Role-based access control systems
+- Docker — Containerization
+- Vercel & Linux servers — Deployment
+
+### Hardware & IoT
+- Arduino — Microcontroller programming
+- Raspberry Pi — IoT gateway systems
+- ESP32 — WiFi/Bluetooth IoT devices
+- Sensors & Actuators — Environmental monitoring
+- PCB Design — Custom circuit boards
+
+## Projects Portfolio
+
+### 1. Chat Mart — Omni-Channel SaaS (2025)
+**Type**: Production SaaS Platform
+**URL**: https://chat-mart.com
+**Description**: Evolution of CSAI into a full multi-company marketplace with 5 messaging channels (WhatsApp, Instagram, Telegram, Viber, Messenger), Kurdish TTS voice replies, RBAC with 17+ permissions, reservation system, and PWA.
+**Impact**: Deployed at chat-mart.com serving multiple companies with AI-powered customer service across 5 channels in 3 languages.
+**Tech**: PHP, MySQL, WhatsApp API, Instagram API, Telegram Bot API, PWA, Kurdish NLP
+
+### 2. CSAI — Customer Service AI (2024-2025)
+**Type**: AI Chatbot Platform
+**Description**: AI-powered customer service chatbot that understands Kurdish (Sorani & Kurmanji), Arabic, and English. Multi-dialect NLP, real-time responses, multi-provider WhatsApp integration. Showcased at HITEX Technology Expo 2025.
+**Impact**: First production Kurdish AI customer service platform. Demonstrated at Iraq's largest technology expo.
+**Tech**: PHP, MySQL, OpenAI API, WhatsApp Cloud API, Kurdish NLP
+
+### 3. Ashti Library (2024)
+**Type**: E-Commerce Platform
+**URL**: https://ashtilibrary.com
+**Description**: Complete Kurdish bookstore website with search/filtering, admin dashboard, AI chatbot using Google Gemini API for book recommendations, full RTL Kurdish support, and WhatsApp ordering integration.
+**Impact**: First production Kurdish bookstore platform with AI recommendations.
+**Tech**: Web, AI, Gemini API, RTL, WhatsApp Integration
+
+### 4. True Prence — Face Recognition Attendance (2024)
+**Type**: AI/Computer Vision
+**GitHub**: https://github.com/ibrahim-ibo-dev/Attendance-System
+**Description**: Face recognition attendance system identifying up to 20 students per frame simultaneously. Supports CNN (GPU) or HOG (CPU) detection, SQLite storage, Tkinter UI, Excel/PDF/chart exports.
+**Impact**: Enables passive, zero-interaction attendance for full classrooms.
+**Tech**: Python, OpenCV, face_recognition, dlib, CUDA, SQLite, Tkinter
+
+### 5. Signed Language Recognition (2024)
+**Type**: AI/Accessibility
+**GitHub**: https://github.com/ibrahim-ibo-dev/AI-Sign-Language
+**Description**: Real-time gesture recognition using MediaPipe hand/body tracking combined with a custom-trained KNN classifier. Features incremental learning, 3x data augmentation, and temporal dynamics analysis. Built for ~250,000 people in Kurdistan with hearing/speech difficulties.
+**Impact**: Demonstrates sign language recognition with zero specialized hardware, using only a laptop camera.
+**Tech**: Python, MediaPipe, scikit-learn, KNN, NumPy
+
+### 6. Bradaran & Dyari — Car Dealership Systems (2024-2025)
+**Type**: Business Management Platform
+**Description**: Full car dealership management systems with inventory tracking, customer management, sales pipeline, RBAC with 17+ permissions, dual-database architecture, installment tracking, PWA with push notifications, and full RTL Kurdish interface.
+**Impact**: Deployed for real clients managing full dealership operations digitally.
+**Tech**: PHP, MySQL, PDO, PWA, Push Notifications, RBAC
+
+### 7. Home System — Smart IoT (2024)
+**Type**: Hardware/IoT
+**Description**: Smart home system presented at NICER Club, Lebanese French University. Features environmental monitoring, automated control, and remote access via custom web dashboard.
+**Impact**: Earned certificate from NICER Club, recognition from university heads.
+**Tech**: Arduino, ESP32, Sensors, Web Dashboard
+
+## Achievements & Awards
+
+1. **1st Place — Kurdistan Region CTF Competition** — Cybersecurity competition winner
+2. **HITEX Technology Expo 2025** — Showcased CSAI platform at Iraq's largest tech expo
+3. **NICER Club Certificate** — Home System Project recognition from Lebanese French University
+4. **Cihan University Coding Competition** — Programming competition participant
+5. **CodeSignal Advanced Certification** — Verified problem-solving skills
+6. **AI Training Program Certificate** — Specialized AI/ML training completion
+7. **CodeX Leaderboard** — Competitive programming rankings
+
+## Education
+
+- **B.Sc. Computer Engineering** (In Progress)
+  - Salahaddin University-Erbil, Kurdistan Region, Iraq
+  - Focus: AI, Software Engineering, Embedded Systems
+
+## Contact Information
+
+- **Website**: https://ibrahim-eng.dev
+- **Email**: ibrahimhuseein842@gmail.com
+- **GitHub**: https://github.com/ibrahim-ibo-dev
+- **LinkedIn**: https://www.linkedin.com/in/ibrahim-hussein-b080712b7/
+- **Case Studies**: https://case-study.ibrahim-eng.dev
+- **Lab/Experiments**: https://lab.ibrahim-eng.dev
+
+## Related URLs
+
+- Main Portfolio: https://ibrahim-eng.dev
+- Case Studies: https://case-study.ibrahim-eng.dev
+- Lab Experiments: https://lab.ibrahim-eng.dev
+- Chat Mart: https://chat-mart.com
+- Ashti Library: https://ashtilibrary.com
