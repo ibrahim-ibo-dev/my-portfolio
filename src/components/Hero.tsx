@@ -115,10 +115,9 @@ export default function Hero() {
           <p
             className="text-body-lg text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            I engineer <span className="text-white font-medium">software systems</span> and{" "}
-            <span className="text-white font-medium">AI platforms</span> that actually work in the real world. 
-            From building localized tech showcased at <span className="text-accent">HITEX 2025</span>, 
-            to leading development teams and winning national hackathons.
+            I design and engineer <span className="text-white font-medium">software systems</span> and{" "}
+            <span className="text-white font-medium">AI platforms</span> built for real-world impact. From developing localized tech showcased at{" "}
+            <span className="text-accent">HITEX 2025</span> to leading development teams and winning national hackathons, I focus on turning ideas into scalable, working solutions.
           </p>
         </TextReveal>
 
