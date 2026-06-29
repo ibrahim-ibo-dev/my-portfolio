@@ -178,13 +178,6 @@ export default function Scene3D() {
 
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
-    // On mobile, use CSS gradient instead of WebGL — saves GPU/battery
-    if (isMobile) {
-      container.style.background = "radial-gradient(ellipse at 50% 40%, #1a1510 0%, #0A0A0F 70%)";
-      container.setAttribute("aria-hidden", "true");
-      return;
-    }
-
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
 
@@ -205,7 +198,8 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Mobile: lower pixel ratio for GPU savings; Desktop: native (capped at 2)
+    renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -226,8 +220,8 @@ export default function Scene3D() {
     let raf = 0;
     const clock = new THREE.Clock();
     let lastFrame = 0;
-    // Desktop: 30fps to balance smoothness and performance
-    const frameInterval = 1000 / 30;
+    // Mobile: 20fps to save battery/GPU; Desktop: 30fps
+    const frameInterval = 1000 / (isMobile ? 20 : 30);
     const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
       if (!isVisible) return;

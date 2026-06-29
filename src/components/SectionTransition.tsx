@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 /**
  * Cinematic section transition divider.
@@ -15,12 +15,6 @@ interface Props {
 
 export default function SectionTransition({ variant = "default", height = "h-20 md:h-28" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768);
-  }, []);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -40,31 +34,6 @@ export default function SectionTransition({ variant = "default", height = "h-20 
     minimal: { line: "rgba(255,255,255,0.15)", halo: "rgba(255,255,255,0.02)" },
   };
   const colors = colorMap[variant];
-
-  // Static fallback for mobile — no scroll-driven transforms
-  if (isMobile) {
-    return (
-      <div
-        ref={ref}
-        className={`relative w-full ${height} flex items-center justify-center overflow-hidden pointer-events-none`}
-        aria-hidden="true"
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(ellipse 60% 80% at 50% 50%, ${colors.halo} 0%, transparent 70%)`,
-          }}
-        />
-        <div
-          className="relative w-full max-w-md h-px origin-center"
-          style={{
-            background: `linear-gradient(to right, transparent 0%, ${colors.line} 50%, transparent 100%)`,
-            boxShadow: `0 0 12px ${colors.line}`,
-          }}
-        />
-      </div>
-    );
-  }
 
   return (
     <div

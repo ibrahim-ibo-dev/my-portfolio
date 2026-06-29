@@ -107,8 +107,7 @@ export default function Projects() {
   useEffect(() => {
     if (!headerRef.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
-    if (prefersReducedMotion || isMobile) {
+    if (prefersReducedMotion) {
       headerRef.current.style.opacity = "1";
       return;
     }

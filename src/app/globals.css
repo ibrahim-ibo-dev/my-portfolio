@@ -61,10 +61,6 @@ body::after {
   background-size: 256px 256px;
 }
 
-@media (max-width: 767px) {
-  body::after { display: none; }
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
@@ -420,56 +416,4 @@ textarea:focus {
 @keyframes ringPulse {
   0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-/* ══════════════════════════════════════════════
-   MOBILE PERFORMANCE OPTIMIZATIONS
-   Disable GPU-heavy effects on mobile to prevent lag
-   ══════════════════════════════════════════════ */
-@media (max-width: 767px) {
-  /* Reduce backdrop-filter blur — very expensive on mobile GPUs */
-  .glass {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-  .glass-strong {
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-  }
-  .glass-card {
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-  }
-
-  /* Disable infinite CSS animations — they drain battery and cause repaints */
-  .skills-dot-grid {
-    animation: none;
-  }
-  .projects-sweep {
-    animation: none;
-  }
-  .contact-rings::before,
-  .contact-rings::after {
-    animation: none;
-  }
-  .scan-line::after {
-    animation: none;
-  }
-
-  /* Reduce blur radius on decorative glows */
-  .parallax-slow, .parallax-fast {
-    will-change: auto;
-  }
-
-  /* Cap large blur radii — blur-[120px]+ causes massive GPU overhead on mobile */
-  [class*="blur-[120px]"],
-  [class*="blur-[140px]"],
-  [class*="blur-[150px]"],
-  [class*="blur-[180px]"],
-  [class*="blur-[200px]"] {
-    filter: blur(60px) !important;
-  }
-  [class*="blur-2xl"] {
-    filter: blur(40px) !important;
-  }
 }

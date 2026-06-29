@@ -28,8 +28,8 @@ export default function Contact() {
   useEffect(() => {
     if (!sectionRef.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
-    if (prefersReducedMotion || isMobile) {
+    if (prefersReducedMotion) {
+      // Just make everything visible immediately
       sectionRef.current.querySelectorAll("[style*='opacity: 0']").forEach((el) => {
         (el as HTMLElement).style.opacity = "1";
       });

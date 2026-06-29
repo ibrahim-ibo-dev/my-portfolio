@@ -18,40 +18,42 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Active section tracking + scrolled state — single rAF-throttled scroll handler
+  // Active section tracking based on scroll position
+  // More reliable than intersection ratio for large sections
   useEffect(() => {
     const sectionIds = ["hero", ...navLinks.map((l) => l.sectionId), "contact"];
-    let ticking = false;
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-        const viewportCenter = scrollY + window.innerHeight / 2;
-
-        let currentSection = "";
-        for (const id of sectionIds) {
-          const el = document.getElementById(id);
-          if (!el) continue;
-          const rect = el.getBoundingClientRect();
-          const elementTop = scrollY + rect.top;
-          const elementBottom = elementTop + rect.height;
-          if (viewportCenter >= elementTop && viewportCenter < elementBottom) {
-            currentSection = id;
-            break;
-          }
+    
+    const updateActiveSection = () => {
+      // Get viewport center point
+      const scrollY = window.scrollY;
+      const viewportCenter = scrollY + window.innerHeight / 2;
+      
+      // Find which section contains the viewport center
+      let currentSection = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        
+        const rect = el.getBoundingClientRect();
+        const elementTop = scrollY + rect.top;
+        const elementBottom = elementTop + rect.height;
+        
+        if (viewportCenter >= elementTop && viewportCenter < elementBottom) {
+          currentSection = id;
+          break;
         }
-
-        if (currentSection) setActiveSection(currentSection);
-        setScrolled(scrollY > 50);
-        ticking = false;
-      });
+      }
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    // Update on scroll
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    
+    return () => window.removeEventListener("scroll", updateActiveSection);
   }, []);
 
   useEffect(() => {
@@ -67,6 +69,10 @@ export default function Navbar() {
         { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", delay: 1.2 }
       );
     }
+
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Close mobile menu on resize to desktop
