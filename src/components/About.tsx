@@ -50,10 +50,11 @@ export default function About() {
   useEffect(() => {
     if (!sectionRef.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
     const reveals = sectionRef.current.querySelectorAll(".about-reveal");
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isMobile) {
       reveals.forEach((el) => { (el as HTMLElement).style.opacity = "1"; });
       return;
     }

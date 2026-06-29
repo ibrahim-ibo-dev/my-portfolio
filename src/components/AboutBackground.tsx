@@ -120,6 +120,12 @@ export default function AboutBackground() {
     if (!container) return;
 
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isMobile || prefersReducedMotion) {
+      container.style.background = "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(20,15,10,0.6) 0%, #0A0A0F 70%)";
+      return;
+    }
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
@@ -140,7 +146,7 @@ export default function AboutBackground() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -150,12 +156,11 @@ export default function AboutBackground() {
     };
     window.addEventListener("resize", onResize);
 
-    // Only animate when visible
     let raf = 0;
     const clock = new THREE.Clock();
     let isVisible = false;
     let lastFrame = 0;
-    const frameInterval = 1000 / (isMobile ? 20 : 30);
+    const frameInterval = 1000 / 30;
 
     const observer = new IntersectionObserver(
       ([entry]) => { isVisible = entry.isIntersecting; },

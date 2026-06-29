@@ -17,6 +17,10 @@ export default function CurvedText({
   useEffect(() => {
     if (!textRef.current) return;
 
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isMobile || prefersReducedMotion) return;
+
     const textElement = textRef.current;
     const textPathElement = textElement.querySelector("textPath");
     if (!textPathElement) return;

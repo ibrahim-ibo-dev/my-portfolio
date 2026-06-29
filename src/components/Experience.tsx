@@ -71,8 +71,9 @@ export default function Experience() {
   useEffect(() => {
     if (!sectionRef.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isMobile) {
       if (headerRef.current) (headerRef.current as HTMLElement).style.opacity = "1";
       sectionRef.current.querySelectorAll(".exp-card").forEach((el) => {
         (el as HTMLElement).style.opacity = "1";
@@ -126,7 +127,6 @@ export default function Experience() {
 
     // Cards reveal with stagger
     const cards = sectionRef.current.querySelectorAll(".exp-card");
-    const isMobile = window.innerWidth < 768;
     cards.forEach((card, i) => {
       const isLeft = i % 2 === 0;
       const cardAnim = gsap.fromTo(

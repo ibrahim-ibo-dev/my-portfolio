@@ -18,6 +18,10 @@ export default function ScrollTypography({ lines, className = "" }: Props) {
     const section = ref.current;
     if (!section) return;
 
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isMobile || prefersReducedMotion) return;
+
     const textLines = section.querySelectorAll<HTMLElement>(".scroll-line");
     const triggers: ScrollTrigger[] = [];
 

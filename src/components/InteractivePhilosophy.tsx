@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { ReactNode } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -131,6 +131,22 @@ const INITIAL_COUNT = 3;
 function PhilosophyCard({ project, index }: { project: PhilosophyProject; index: number }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const inView = useInView(wrapperRef, { once: true, margin: "-50px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768);
+  }, []);
+
+  const canvasMap: Record<string, ReactNode> = {
+    "illusion-opportunity": <IllusionCanvas />,
+    "weight-of-past": <WeightCanvas />,
+    "endless-horizon": <HorizonCanvas />,
+    "fragility-connection": <FragilityCanvas />,
+    "echo-chamber": <EchoCanvas />,
+    "paradox-of-choice": <ParadoxCanvas />,
+    "selective-blindness": <BlindnessCanvas />,
+    "butterfly-effect": <ButterflyCanvas />,
+  };
 
   return (
     <motion.div
@@ -150,17 +166,7 @@ function PhilosophyCard({ project, index }: { project: PhilosophyProject; index:
           {/* Card top — media area */}
           <div className="relative h-52 overflow-hidden">
             {(() => {
-              const canvasMap: Record<string, ReactNode> = {
-                "illusion-opportunity": <IllusionCanvas />,
-                "weight-of-past": <WeightCanvas />,
-                "endless-horizon": <HorizonCanvas />,
-                "fragility-connection": <FragilityCanvas />,
-                "echo-chamber": <EchoCanvas />,
-                "paradox-of-choice": <ParadoxCanvas />,
-                "selective-blindness": <BlindnessCanvas />,
-                "butterfly-effect": <ButterflyCanvas />,
-              };
-              const preview = canvasMap[project.id];
+              const preview = !isMobile ? canvasMap[project.id] : null;
               if (preview) {
                 return (
                   <>
