@@ -17,10 +17,11 @@ export default function ProjectDetail({ project }: Props) {
   useEffect(() => {
     if (!contentRef.current) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
 
     const els = contentRef.current.querySelectorAll(".reveal-up");
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isMobile) {
       els.forEach((el) => { (el as HTMLElement).style.opacity = "1"; });
       return;
     }
