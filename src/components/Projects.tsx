@@ -25,7 +25,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <a
         href={project.caseStudyUrl || `/projects/${project.slug}`}
       >
-        <div className="relative rounded-3xl overflow-hidden group cursor-pointer h-full border border-white/[0.05] bg-surface/60 backdrop-blur-sm shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+        <div className="relative rounded-3xl overflow-hidden group cursor-pointer h-full border border-white/[0.05] bg-[#12121A]/80 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
           {/* Card top */}
           <div className="relative h-52 overflow-hidden">
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} z-10`} />
@@ -41,7 +41,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* Category badge */}
             <div className="absolute top-3 left-3 z-20">
-              <span className={`px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full backdrop-blur-sm ${
+              <span className={`px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full ${
                 project.category === "software"
                   ? "bg-accent/20 text-accent border border-accent/20"
                   : "bg-accent-light/20 text-accent-light border border-accent-light/20"
@@ -52,7 +52,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
             {/* View indicator on hover */}
             <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="px-4 py-2 rounded-full glass-card backdrop-blur-xl text-xs font-medium text-white border border-white/20">
+              <span className="px-4 py-2 rounded-full glass-card text-xs font-medium text-white border border-white/20">
                 View Details &rarr;
               </span>
             </div>
@@ -136,8 +136,14 @@ export default function Projects() {
       {/* Diagonal sweep gradient */}
       <div className="absolute inset-0 projects-sweep" />
       {/* Accent glows at corners */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/[0.04] rounded-full blur-[180px]" />
-      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-accent-light/[0.03] rounded-full blur-[140px]" />
+      <div
+        className="absolute top-0 left-0 w-[400px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 45%, transparent 70%)" }}
+      />
+      <div
+        className="absolute bottom-0 right-0 w-[350px] h-[350px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,201,160,0.04) 0%, rgba(232,201,160,0.015) 45%, transparent 70%)" }}
+      />
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -176,8 +182,8 @@ export default function Projects() {
             className="group relative inline-flex items-center gap-3 px-10 py-4.5 rounded-full text-sm font-semibold tracking-wide border border-accent/20 bg-accent/[0.04] text-accent/90 hover:text-accent hover:border-accent/40 transition-all duration-500 ease-premium focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
           >
             {/* Multi-layer glow backdrop */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/[0.08] via-accent-light/[0.04] to-accent/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-600 blur-md" aria-hidden="true" />
-            <span className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-accent/20 via-accent-light/10 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl -z-10" aria-hidden="true" />
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/[0.08] via-accent-light/[0.04] to-accent/[0.08] opacity-0 group-hover:opacity-100 transition-opacity duration-600" aria-hidden="true" />
+            <span className="absolute -inset-[1px] rounded-full bg-gradient-to-r from-accent/20 via-accent-light/10 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" aria-hidden="true" />
 
             <span className="relative z-10">View Full Project Archive</span>
             <svg className="relative z-10 w-4 h-4 transition-transform duration-400 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

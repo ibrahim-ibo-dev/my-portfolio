@@ -102,8 +102,14 @@ export default function Skills() {
   return (
     <section id="skills" ref={sectionRef} className="py-20 md:pt-12 md:pb-24 relative overflow-hidden" aria-labelledby="skills-heading">
       <div className="absolute inset-0 skills-dot-grid opacity-60" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[180px]" />
-      <div className="absolute top-10 left-10 w-[350px] h-[350px] bg-accent-light/[0.03] rounded-full blur-[120px]" />
+      <div
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 45%, transparent 70%)" }}
+      />
+      <div
+        className="absolute top-10 left-10 w-[350px] h-[350px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,201,160,0.04) 0%, rgba(232,201,160,0.015) 45%, transparent 70%)" }}
+      />
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -129,7 +135,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIdx * 0.12 }}
-              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm p-5 hover:border-accent/15 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500"
+              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 hover:border-accent/15 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500"
             >
               {/* Category header */}
               <div className="flex items-center gap-2.5 mb-4">

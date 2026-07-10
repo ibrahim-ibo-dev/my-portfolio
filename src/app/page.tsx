@@ -3,7 +3,6 @@
 import nextDynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import CurvedText from "@/components/CurvedText";
 import ScrollTypography from "@/components/ScrollTypography";
 import LoadingScreen from "@/components/LoadingScreen";
 import SectionTransition from "@/components/SectionTransition";
@@ -27,7 +26,6 @@ export default function Home() {
       <LoadingScreen />
       <Navbar />
       <Hero />
-      <CurvedText />
       <ScrollTypography
         lines={[
           "PYTHON · C++ · REACT · FLUTTER · NEXT.JS · TYPESCRIPT · PYTHON · C++ · REACT ·",
@@ -58,7 +56,6 @@ export default function Home() {
       <Credentials />
       <SectionTransition variant="cool" />
       <InteractivePhilosophy />
-      <SectionTransition variant="warm" />
       <Contact />
       <Footer />
     </main>

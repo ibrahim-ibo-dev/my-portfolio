@@ -94,8 +94,16 @@ export default function Contact() {
       {/* Pulsing concentric rings */}
       <div className="absolute inset-0 contact-rings" aria-hidden="true" />
       {/* Central warm glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/[0.035] rounded-full blur-[200px]" aria-hidden="true" />
-      <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-accent-light/[0.02] rounded-full blur-[150px]" aria-hidden="true" />
+      <div
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 45%, transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 left-1/4 w-[300px] h-[300px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,201,160,0.03) 0%, rgba(232,201,160,0.01) 50%, transparent 70%)" }}
+        aria-hidden="true"
+      />
       <div className="section-divider absolute top-0 left-0 right-0" aria-hidden="true" />
 
       <div className="max-w-5xl mx-auto px-6">

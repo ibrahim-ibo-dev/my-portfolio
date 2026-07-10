@@ -162,9 +162,21 @@ export default function Experience() {
       className="py-20 md:py-32 relative overflow-hidden exp-beams"
       aria-labelledby="experience-heading"
     >
-      {/* Soft vertical light beam behind timeline */}
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[600px] bg-accent/[0.025] rounded-full blur-[200px] rotate-12" />
-      <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[500px] bg-accent/[0.025] rounded-full blur-[180px] -rotate-12" />
+      {/* Soft ambient glows — pure gradients (no blur filter: sharper + cheaper on mobile GPUs) */}
+      <div
+        className="absolute top-1/4 right-1/4 w-[600px] h-[800px] rotate-12 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 45%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute bottom-1/4 left-1/4 w-[550px] h-[700px] -rotate-12 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(212,165,116,0.05) 0%, rgba(212,165,116,0.02) 45%, transparent 70%)",
+        }}
+      />
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-5xl mx-auto px-6">
@@ -229,7 +241,7 @@ export default function Experience() {
 
                     {/* Card — mobile */}
                     <div
-                      className={`rounded-xl p-4 border ${exp.borderColor} bg-white/[0.02] backdrop-blur-sm`}
+                      className={`rounded-xl p-4 border ${exp.borderColor} bg-[#101018]/80`}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <FaBriefcase

@@ -146,7 +146,7 @@ function PhilosophyCard({ project, index }: { project: PhilosophyProject; index:
         aria-label={`${project.title} — ${project.category} experience (opens in new tab)`}
         className="h-full block"
       >
-        <div className="relative rounded-3xl overflow-hidden group cursor-pointer h-full border border-white/[0.05] bg-surface/60 backdrop-blur-sm shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
+        <div className="relative rounded-3xl overflow-hidden group cursor-pointer h-full border border-white/[0.05] bg-[#12121A]/80 shadow-card hover:shadow-card-hover hover:border-accent/15 transition-all duration-500 ease-premium">
           {/* Card top — media area */}
           <div className="relative h-52 overflow-hidden">
             {(() => {
@@ -180,19 +180,19 @@ function PhilosophyCard({ project, index }: { project: PhilosophyProject; index:
                       <div className="w-14 h-14 rounded-2xl border border-white/[0.06] bg-white/[0.02] flex items-center justify-center">
                         <span className="text-xl font-bold text-gradient opacity-40">∅</span>
                       </div>
-                      <div className="absolute -inset-8 bg-accent/[0.03] rounded-full blur-2xl" />
+                      <div className="absolute -inset-8 bg-accent/[0.03] rounded-full" style={{ filter: "blur(20px)" }} />
                     </div>
                   </div>
                 </>
               );
             })()}
             <div className="absolute top-3 left-3 z-20">
-              <span className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full bg-black/40 backdrop-blur-sm text-white/60 border border-white/10">
+              <span className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full bg-black/50 text-white/60 border border-white/10">
                 {project.category}
               </span>
             </div>
             <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="px-4 py-2 rounded-full glass-card backdrop-blur-xl text-xs font-medium text-white border border-white/20">
+              <span className="px-4 py-2 rounded-full glass-card text-xs font-medium text-white border border-white/20">
                 Experience &rarr;
               </span>
             </div>
@@ -241,8 +241,16 @@ export default function InteractivePhilosophy() {
       className="py-24 md:py-32 relative overflow-hidden"
       aria-labelledby="philosophy-heading"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/[0.025] rounded-full blur-[200px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute top-1/4 right-1/4 w-[350px] h-[350px] bg-accent-light/[0.02] rounded-full blur-[150px] pointer-events-none" aria-hidden="true" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,165,116,0.04) 0%, rgba(212,165,116,0.015) 50%, transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/4 right-1/4 w-[350px] h-[350px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,201,160,0.03) 0%, rgba(232,201,160,0.01) 50%, transparent 70%)" }}
+        aria-hidden="true"
+      />
       <div className="section-divider absolute top-0 left-0 right-0" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6">

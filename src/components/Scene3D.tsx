@@ -177,6 +177,12 @@ export default function Scene3D() {
     }
 
     const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    // Old/low-end phone detection: few CPU cores or low RAM
+    const nav = navigator as Navigator & { deviceMemory?: number };
+    const isLowEnd =
+      isMobile &&
+      ((nav.deviceMemory !== undefined && nav.deviceMemory <= 4) ||
+        (navigator.hardwareConcurrency || 8) <= 4);
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const scene = new THREE.Scene();
@@ -198,8 +204,10 @@ export default function Scene3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    // Mobile: lower pixel ratio for GPU savings; Desktop: native (capped at 2)
-    renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
+    // Low-end: render at 1x; Mobile: 1.25x; Desktop: native (capped at 2)
+    renderer.setPixelRatio(
+      isLowEnd ? 1 : isMobile ? Math.min(window.devicePixelRatio, 1.25) : Math.min(window.devicePixelRatio, 2)
+    );
     renderer.setClearColor(0x0A0A0F, 1);
     container.appendChild(renderer.domElement);
 
@@ -220,8 +228,8 @@ export default function Scene3D() {
     let raf = 0;
     const clock = new THREE.Clock();
     let lastFrame = 0;
-    // Mobile: 20fps to save battery/GPU; Desktop: 30fps
-    const frameInterval = 1000 / (isMobile ? 20 : 30);
+    // Low-end: 15fps; Mobile: 20fps; Desktop: 30fps
+    const frameInterval = 1000 / (isLowEnd ? 15 : isMobile ? 20 : 30);
     const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
       if (!isVisible) return;

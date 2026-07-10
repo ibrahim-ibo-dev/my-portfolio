@@ -151,17 +151,17 @@ export default function Hero() {
         {/* Trust bar */}
         <div
           ref={trustRef}
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8"
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
           style={{ opacity: 0 }}
         >
           {trustItems.map((item, i) => (
             <div key={item.label} className="flex items-center gap-3 text-left">
               {i > 0 && (
-                <div className="hidden sm:block w-px h-8 bg-white/[0.06]" aria-hidden="true" />
+                <div className="hidden sm:block w-px h-8 bg-white/[0.12]" aria-hidden="true" />
               )}
               <div className={i > 0 ? "sm:pl-3" : ""}>
                 <div className="text-sm sm:text-base font-bold text-gradient">{item.value}</div>
-                <div className="text-[10px] sm:text-[11px] text-gray-500 font-mono uppercase tracking-wider">{item.label}</div>
+                <div className="text-[10px] sm:text-[11px] text-gray-300/90 font-mono uppercase tracking-wider">{item.label}</div>
               </div>
             </div>
           ))}

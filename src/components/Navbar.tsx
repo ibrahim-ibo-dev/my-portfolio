@@ -110,8 +110,8 @@ export default function Navbar() {
         <div
           className={`pointer-events-auto flex items-center gap-1 sm:gap-2 mt-4 rounded-full border select-none transition-all duration-600 ease-premium px-2.5 py-1.5 sm:px-3 sm:py-2 ${
             scrolled
-              ? "border-accent/10 bg-black/70 backdrop-blur-2xl shadow-elevation-3 shadow-black/30"
-              : "border-white/[0.05] bg-white/[0.02] backdrop-blur-xl"
+              ? "border-accent/10 bg-black/85 shadow-elevation-3 shadow-black/30"
+              : "border-white/[0.05] bg-black/40"
           }`}
         >
           {/* Logo */}
@@ -172,7 +172,7 @@ export default function Navbar() {
 
         {/* Mobile dropdown */}
         {mobileOpen && (
-          <div className="pointer-events-auto sm:hidden fixed top-16 left-4 right-4 rounded-3xl border border-white/[0.06] bg-black/80 backdrop-blur-2xl shadow-elevation-4 p-4 space-y-1 z-50">
+          <div className="pointer-events-auto sm:hidden fixed top-16 left-4 right-4 rounded-3xl border border-white/[0.06] bg-black/92 shadow-elevation-4 p-4 space-y-1 z-50">
             <nav aria-label="Mobile navigation">
               {[...navLinks, { href: "#contact", label: "Contact", sectionId: "contact" }].map((link) => (
                 <a

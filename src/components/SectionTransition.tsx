@@ -13,7 +13,7 @@ interface Props {
   height?: string;
 }
 
-export default function SectionTransition({ variant = "default", height = "h-20 md:h-28" }: Props) {
+export default function SectionTransition({ variant = "default", height = "h-12 md:h-16" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -28,9 +28,9 @@ export default function SectionTransition({ variant = "default", height = "h-20 
   const haloY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
   const colorMap = {
-    default: { line: "rgba(212,165,116,0.6)", halo: "rgba(212,165,116,0.08)" },
-    warm: { line: "rgba(220,140,70,0.7)", halo: "rgba(220,140,70,0.10)" },
-    cool: { line: "rgba(140,170,212,0.5)", halo: "rgba(140,170,212,0.06)" },
+    default: { line: "rgba(212,165,116,0.45)", halo: "rgba(212,165,116,0.05)" },
+    warm: { line: "rgba(220,140,70,0.5)", halo: "rgba(220,140,70,0.06)" },
+    cool: { line: "rgba(140,170,212,0.4)", halo: "rgba(140,170,212,0.04)" },
     minimal: { line: "rgba(255,255,255,0.15)", halo: "rgba(255,255,255,0.02)" },
   };
   const colors = colorMap[variant];
@@ -53,11 +53,11 @@ export default function SectionTransition({ variant = "default", height = "h-20 
 
       {/* Center glowing line */}
       <motion.div
-        className="relative w-full max-w-md h-px origin-center"
+        className="relative w-full max-w-[16rem] md:max-w-xs h-px origin-center"
         style={{
           scaleX,
           background: `linear-gradient(to right, transparent 0%, ${colors.line} 50%, transparent 100%)`,
-          boxShadow: `0 0 12px ${colors.line}`,
+          boxShadow: `0 0 8px ${colors.line}`,
         }}
       />
 

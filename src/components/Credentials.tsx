@@ -138,8 +138,14 @@ export default function Credentials() {
       {/* Constellation starfield */}
       <div className="absolute inset-0 constellation-bg" />
       {/* Central nebula glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-light/[0.025] rounded-full blur-[200px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-accent/[0.02] rounded-full blur-[150px] pointer-events-none" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(232,201,160,0.04) 0%, rgba(232,201,160,0.015) 50%, transparent 70%)" }}
+      />
+      <div
+        className="absolute top-1/3 right-1/4 w-[300px] h-[300px] pointer-events-none"
+        style={{ background: "radial-gradient(circle at 50% 50%, rgba(212,165,116,0.03) 0%, rgba(212,165,116,0.01) 50%, transparent 70%)" }}
+      />
       <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -182,7 +188,7 @@ export default function Credentials() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent" />
                 {/* Badge on image */}
                 <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full bg-black/40 backdrop-blur-sm text-white/60 border border-white/10">
+                  <span className="px-2.5 py-1 text-[9px] font-mono uppercase tracking-wider rounded-full bg-black/50 text-white/60 border border-white/10">
                     {item.badge}
                   </span>
                 </div>

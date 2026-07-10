@@ -360,18 +360,15 @@ textarea:focus {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 1px;
+  width: 140px;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(212, 165, 116, 0.08) 20%,
-    rgba(212, 165, 116, 0.12) 40%,
-    rgba(232, 201, 160, 0.08) 70%,
-    transparent 100%
+  background: radial-gradient(
+    ellipse 50% 45% at 50% 45%,
+    rgba(212, 165, 116, 0.07) 0%,
+    rgba(212, 165, 116, 0.03) 45%,
+    transparent 75%
   );
   transform: translateX(-50%);
-  filter: blur(8px);
   pointer-events: none;
 }
 
@@ -416,4 +413,35 @@ textarea:focus {
 @keyframes ringPulse {
   0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE / TOUCH PERFORMANCE
+   Visually near-identical, but skips the most
+   GPU-expensive effects on phones (esp. old ones)
+   ══════════════════════════════════════════════ */
+@media (pointer: coarse) {
+  /* Film grain overlay: invisible at 2.5% opacity on small screens,
+     but forces full-screen compositing every scroll frame */
+  body::after {
+    display: none;
+  }
+
+  /* backdrop-filter is extremely expensive on older mobile GPUs.
+     Swap for slightly more opaque solid backgrounds — same look on dark bg. */
+  .glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(10, 10, 15, 0.88);
+  }
+  .glass-strong {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(10, 10, 15, 0.94);
+  }
+  .glass-card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(18, 18, 26, 0.8);
+  }
 }
