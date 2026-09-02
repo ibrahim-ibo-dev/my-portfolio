@@ -115,6 +115,16 @@ const credentials = [
     accent: "from-accent-light/20 to-accent-light/10",
     dot: "bg-accent-light",
   },
+  {
+    badge: "// IoT & Security",
+    title: "Smart Home & Security Systems — YouthHub × VOLT",
+    subtitle: "IoT & Security Certification · August 2026",
+    text:
+      "Completed advanced training in Smart Home & Security Systems through YouthHub in collaboration with VOLT. Gained hands-on expertise in IoT architecture, home automation protocols, and integrated security system design — reinforcing a deep specialization in intelligent embedded solutions.",
+    image: "/images/achievements/smart-home-security.jpg",
+    accent: "from-accent/20 to-accent-light/15",
+    dot: "bg-accent",
+  },
 ];
 
 const INITIAL_COUNT = 3;
