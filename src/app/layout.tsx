@@ -88,6 +88,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  verification: {
+    google: "wKWJrIYHPaMID1jOpJwUKL-R8gI21Ut-laoXN7f_nXk",
+  },
   other: {
     "theme-color": "#0A0A0F",
   },
@@ -223,7 +226,7 @@ export default function RootLayout({
               "@type": "ItemList",
               name: "Ibrahim Hussein Projects",
               description: "Software and hardware projects by Ibrahim Hussein",
-              numberOfItems: 6,
+              numberOfItems: 4,
               itemListElement: [
                 {
                   "@type": "ListItem",
