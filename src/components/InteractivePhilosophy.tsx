@@ -37,7 +37,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "A psychological simulation where 10 open doors beautifully glow, but violently slam shut the moment you step towards them.",
     videoUrl: "/videos/illusion.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/illusion",
+    labUrl: "https://lab.ibrahim-eng.dev/illusion/",
     ready: true,
     category: "Psychology",
     tags: ["Canvas", "Physics"],
@@ -49,7 +49,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "Moving too fast spawns heavy shadows that tether to your soul. Freedom comes only when you stop to accept them.",
     videoUrl: "/videos/weight.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/weight",
+    labUrl: "https://lab.ibrahim-eng.dev/weight/",
     category: "Philosophy",
     tags: ["Kinematics", "Philosophy"],
     gradient: "from-accent-light/20 to-accent/10",
@@ -60,7 +60,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "The goal mathematically repels you. But the faster you chase the unreachable, the more breathtaking the background becomes.",
     videoUrl: "/videos/horizon.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/horizon",
+    labUrl: "https://lab.ibrahim-eng.dev/horizon/",
     category: "Concept",
     tags: ["Trigonometry", "Canvas"],
     gradient: "from-accent/15 to-accent-light/15",
@@ -71,7 +71,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "Building a crystalline connection requires extremely slow movements. A single sudden jerk violently shatters the bond.",
     videoUrl: "/videos/fragility.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/fragility",
+    labUrl: "https://lab.ibrahim-eng.dev/fragility/",
     category: "Emotion",
     tags: ["Velocity Tracking", "Particles"],
     gradient: "from-accent-light/15 to-accent/10",
@@ -82,7 +82,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "Accepting only familiar shapes makes your bubble thicker and darker. Rejecting opposing views isolates you completely.",
     videoUrl: "/videos/echo.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/echo",
+    labUrl: "https://lab.ibrahim-eng.dev/echo/",
     category: "Social",
     tags: ["Collision Math", "UI"],
     gradient: "from-accent/20 to-accent/10",
@@ -93,7 +93,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "Three calm choices fracture into hundreds the moment you approach one. The only peace is to stop choosing entirely.",
     videoUrl: "/videos/paradox.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/paradox",
+    labUrl: "https://lab.ibrahim-eng.dev/paradox/",
     category: "Cognitive",
     tags: ["Swarm Physics", "Spawn Logic"],
     gradient: "from-accent-light/20 to-accent-light/10",
@@ -104,7 +104,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "The truth is written in giant letters — but your spotlight reveals only addictive distractions. Sweep fast to see it.",
     videoUrl: "/videos/blindness.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/blindness",
+    labUrl: "https://lab.ibrahim-eng.dev/blindness/",
     category: "Attention",
     tags: ["Canvas Masking", "Particles"],
     gradient: "from-accent/10 to-accent-light/20",
@@ -115,7 +115,7 @@ const philosophyProjects: PhilosophyProject[] = [
     description:
       "A silent grid of thousands of dots. One click sends a wave that warps the entire universe into breathtaking patterns.",
     videoUrl: "/videos/butterfly.webm",
-    labUrl: "https://lab.ibrahim-eng.dev/butterfly",
+    labUrl: "https://lab.ibrahim-eng.dev/butterfly/",
     category: "Chaos Theory",
     tags: ["Wave Function", "10k Dots"],
     gradient: "from-accent-light/15 to-accent/15",
