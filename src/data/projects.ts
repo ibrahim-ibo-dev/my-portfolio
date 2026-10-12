@@ -26,6 +26,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "rashkaw-media",
+    title: "Rashkaw Media",
+    description:
+      "Full trilingual news platform for Rashkaw Media — editorial sections, live sports & news coverage, currency & gold market, Kurdistan weather, polls and surveys, and a dedicated admin panel, custom-built to the client's specification.",
+    problem: "A Kurdish newsroom needed more than a CMS theme — a custom editorial platform with live coverage, market/weather data, polls, and three language editions, designed entirely around their own workflow.",
+    solution: "Designed and built end-to-end: a Next.js public frontend, a dedicated REST API backend, and a standalone React admin panel — with trilingual Kurdish/Arabic/English routing and SEO built in.",
+    impact: "Live at rashkaw.news and indexed on Google. The codebase is private and owned by the client.",
+    highlights: [
+      { label: "Languages", value: "CKB / AR / EN" },
+      { label: "Live Coverage", value: "Sports + News" },
+      { label: "Engagement", value: "Polls & Surveys" },
+    ],
+    tags: ["Next.js", "TypeScript", "Express", "MongoDB", "i18n", "RTL"],
+    image: "/images/projects/rashkaw-media.png",
+    github: "#",
+    live: "https://rashkaw.news",
+    caseStudyUrl: "https://case-study.ibrahim-eng.dev/rashkaw-media",
+    gradient: "from-accent/30 to-accent-light/20",
+    status: "Completed",
+    category: "software",
+  },
+  {
     slug: "chat-mart",
     title: "Chat Mart — Omni-Channel SaaS",
     description:
