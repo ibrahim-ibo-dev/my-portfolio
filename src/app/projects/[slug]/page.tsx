@@ -24,11 +24,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       type: "article",
       url: `/projects/${slug}`,
+      images: [{ url: project.image, alt: project.imageAlt || project.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description,
+      images: [project.image],
     },
   };
 }

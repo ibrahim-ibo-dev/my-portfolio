@@ -1,5 +1,5 @@
 export type ProjectCategory = "software" | "hardware";
-export type ProjectStatus = "Completed" | "Ongoing" | "Conceptualized";
+export type ProjectStatus = "Completed" | "Ongoing" | "Conceptualized" | "Prototype";
 
 export interface ProjectHighlight {
   label: string;
@@ -16,6 +16,13 @@ export interface Project {
   highlights?: ProjectHighlight[];
   tags: string[];
   image: string;
+  imageAlt?: string;
+  showcase?: {
+    discipline: string;
+    summary: string;
+    feature: string;
+  };
+  gallery?: { image: string; alt: string; caption: string }[];
   github: string;
   live: string;
   caseStudyUrl?: string;
@@ -25,6 +32,122 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "cosmic-scale",
+    title: "Cosmic Scale Visualizer",
+    description:
+      "An interactive journey from a proton to the observable universe, with 12 reference scales, a logarithmic zoom system, and a Kurdish Sorani interface.",
+    problem: "Scientific distances and sizes span orders of magnitude that are difficult to picture from numbers alone.",
+    solution: "Built a visual scale explorer with logarithmic navigation, illustrated reference objects, and Kurdish explanations. Scroll, click, or use the keyboard to move between scales.",
+    impact: "Makes the relationship between microscopic, human, planetary, and cosmic scales easier to explore. Values are approximate educational references rather than a precision measurement tool.",
+    highlights: [
+      { label: "Reference scales", value: "12" },
+      { label: "Navigation", value: "Logarithmic zoom" },
+      { label: "Language", value: "Kurdish Sorani" },
+    ],
+    tags: ["Next.js", "React", "TypeScript", "Data Visualization", "RTL"],
+    image: "/images/projects/cosmic-scale.jpg",
+    imageAlt: "Cosmic Scale Visualizer showing Earth and its scale in a Kurdish interface",
+    showcase: {
+      discipline: "Science & exploration",
+      summary: "From a proton to the observable universe. A different perspective at every scale.",
+      feature: "12 reference scales · Logarithmic navigation",
+    },
+    gallery: [{ image: "/images/projects/cosmic-scale-detail.jpg", alt: "A second reference scale inside Cosmic Scale Visualizer", caption: "Move between reference scales while keeping their relative size in view." }],
+    github: "#",
+    live: "#",
+    caseStudyUrl: "https://case-study.ibrahim-eng.dev/cosmic-scale",
+    gradient: "from-accent/20 to-accent-light/10",
+    status: "Completed",
+    category: "software",
+  },
+  {
+    slug: "algorithm-playground",
+    title: "Algorithm Playground",
+    description:
+      "ئەلگۆریتم — a Kurdish Sorani playground for seeing how algorithms work, with 16 sorting, searching, pathfinding, and maze algorithms, plus Conway’s Game of Life.",
+    problem: "Reading an algorithm does not always explain how its state changes. Learners need a way to slow down, inspect a step, and try their own input.",
+    solution: "Built a reversible playback engine with synchronized pseudocode, a scrubbable timeline, adjustable speed, and live operation counts. Editable grids support walls, weighted cells, maze generation, and pathfinding.",
+    impact: "Provides a hands-on learning environment in Kurdish: follow an algorithm, rewind its recorded steps, and connect its code to its behavior. Conway’s Game of Life runs as a separate forward simulation.",
+    highlights: [
+      { label: "Algorithms", value: "16 + Game of Life" },
+      { label: "Playback", value: "Step & rewind" },
+      { label: "Learning", value: "Code + live statistics" },
+    ],
+    tags: ["Next.js", "TypeScript", "Zustand", "Canvas", "Algorithms"],
+    image: "/images/projects/algorithm-playground.jpg",
+    imageAlt: "Quick Sort running in Algorithm Playground with highlighted pseudocode and Kurdish learning controls",
+    showcase: {
+      discipline: "Computer science & learning",
+      summary: "See the logic. Follow each step. Learn algorithms through a Kurdish interface.",
+      feature: "16 algorithms · Reversible playback",
+    },
+    gallery: [{ image: "/images/projects/algorithm-playground-detail.jpg", alt: "A maze solved with Dijkstra in Algorithm Playground", caption: "Generate a maze, then follow Dijkstra as it finds a path through it." }],
+    github: "#",
+    live: "#",
+    caseStudyUrl: "https://case-study.ibrahim-eng.dev/algorithm-playground",
+    gradient: "from-accent-light/20 to-accent/10",
+    status: "Completed",
+    category: "software",
+  },
+  {
+    slug: "glyphcode",
+    title: "GlyphCode",
+    description:
+      "An experimental visual data code that encodes text into waves, rings, spirals, and leaf shapes, with local generation and a custom camera and image decoder.",
+    problem: "Could a visual code carry data through more expressive shapes while remaining locally decodable?",
+    solution: "Designed a custom UTF-8 frame format with CRC32 verification and Reed–Solomon error correction, six visual styles, and a browser-based scanning pipeline. The drawing carries the data directly, without a server lookup or a hidden QR code.",
+    impact: "A working exploration of visual encoding and browser-based computer vision. It is a prototype with limited capacity and perspective tolerance, rather than a replacement for standard QR codes.",
+    highlights: [
+      { label: "Visual styles", value: "6" },
+      { label: "Processing", value: "Local / offline" },
+      { label: "Error correction", value: "Reed–Solomon" },
+    ],
+    tags: ["Next.js", "TypeScript", "Canvas", "Computer Vision", "PWA"],
+    image: "/images/projects/glyphcode.jpg",
+    imageAlt: "GlyphCode generator displaying a leaf-shaped visual code and successful local verification",
+    showcase: {
+      discipline: "Creative coding & computer vision",
+      summary: "Text becomes a shape. An experiment in visual codes beyond the square.",
+      feature: "6 visual styles · Local encoding & decoding",
+    },
+    gallery: [{ image: "/images/projects/glyphcode-detail.jpg", alt: "A wave-shaped visual code generated inside GlyphCode", caption: "Shared encoding, different geometries: waves, circles, spirals, and leaves." }],
+    github: "#",
+    live: "#",
+    caseStudyUrl: "https://case-study.ibrahim-eng.dev/glyphcode",
+    gradient: "from-accent/20 to-accent-light/10",
+    status: "Prototype",
+    category: "software",
+  },
+  {
+    slug: "kurdistan-weather",
+    title: "Kurdistan Weather",
+    description:
+      "A Kurdish Sorani weather app with live conditions, hourly and seven-day forecasts, and an atmospheric interface that responds to the weather and time of day.",
+    problem: "Weather information should feel natural to read in Kurdish and make current conditions easy to understand at a glance.",
+    solution: "Combined Open-Meteo forecasts with city search, optional browser location, Kurdish-Indic digits, and a fully RTL layout. Custom animated weather icons and a changing sky reflect the current conditions and daylight phase.",
+    impact: "Available at weather.ibrahim-eng.dev, bringing current conditions and upcoming forecasts together in an interface designed for Kurdish speakers.",
+    highlights: [
+      { label: "Forecast", value: "Hourly + 7 days" },
+      { label: "Weather data", value: "Open-Meteo" },
+      { label: "Interface", value: "Kurdish / RTL" },
+    ],
+    tags: ["Next.js", "React", "Open-Meteo", "SVG Animation", "RTL"],
+    image: "/images/projects/kurdistan-weather.jpg",
+    imageAlt: "Kurdistan Weather showing live conditions and a forecast in Kurdish Sorani",
+    showcase: {
+      discipline: "Everyday tools & local design",
+      summary: "A forecast that feels local. Kurdish weather, with a sky that changes with the day.",
+      feature: "Live conditions · Hourly & 7-day forecasts",
+    },
+    gallery: [{ image: "/images/projects/kurdistan-weather-detail.jpg", alt: "Detailed forecast inside Kurdistan Weather", caption: "Current conditions, an hourly outlook, and the week ahead in one Kurdish interface." }],
+    github: "#",
+    live: "https://weather.ibrahim-eng.dev",
+    caseStudyUrl: "https://case-study.ibrahim-eng.dev/kurdistan-weather",
+    gradient: "from-accent-light/20 to-accent/10",
+    status: "Completed",
+    category: "software",
+  },
   {
     slug: "rashkaw-media",
     title: "Rashkaw Media",
