@@ -15,7 +15,7 @@ function Arrow({ className = "" }: { className?: string }) {
   );
 }
 
-function RecentProjectCard({ project, index }: { project: Project; index: number }) {
+function FeaturedProjectCard({ project, index }: { project: Project; index: number }) {
   const reducedMotion = useReducedMotion();
 
   return (
@@ -33,7 +33,7 @@ function RecentProjectCard({ project, index }: { project: Project; index: number
       >
         <div className="flex items-center justify-between gap-3 px-5 pt-5 sm:px-7 sm:pt-6">
           <span className="font-mono text-[10px] leading-5 tracking-[0.11em] uppercase text-accent/90">
-            {project.showcase?.discipline}
+            {project.tags.includes("AI") ? "Applied AI & software" : "Full-stack platform"}
           </span>
           <span className="font-mono text-xs text-white/35" aria-hidden="true">0{index + 1}</span>
         </div>
@@ -65,7 +65,7 @@ function RecentProjectCard({ project, index }: { project: Project; index: number
               <Arrow className="h-4 w-4" />
             </span>
           </div>
-          <p className="max-w-lg text-sm leading-7 text-[#a6a3af]">{project.showcase?.summary}</p>
+          <p className="max-w-lg text-sm leading-7 text-[#a6a3af]">{project.description}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {project.tags.slice(0, 3).map((tag) => (
               <span key={tag} className="rounded-full border border-white/[0.08] px-2.5 py-1 font-mono text-[9px] text-[#b7b1ad]">{tag}</span>
@@ -76,7 +76,7 @@ function RecentProjectCard({ project, index }: { project: Project; index: number
           </div>
           <div className="mt-auto pt-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/[0.07] pt-4">
-              <span className="text-[11px] leading-5 text-[#99939b]">{project.showcase?.feature}</span>
+              <span className="text-[11px] leading-5 text-[#99939b]">{project.highlights?.[0] ? `${project.highlights[0].label}: ${project.highlights[0].value}` : project.status}</span>
               <span className="text-[11px] font-medium text-accent">Explore project <span aria-hidden="true">↗</span></span>
             </div>
           </div>
@@ -86,33 +86,7 @@ function RecentProjectCard({ project, index }: { project: Project; index: number
   );
 }
 
-function FeaturedProjectCard({ project }: { project: Project }) {
-  return (
-    <article className="min-w-0">
-      <a
-        href={project.caseStudyUrl || `/projects/${project.slug}`}
-        className="group block h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111116] transition-colors hover:border-accent/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-      >
-        <div className="relative aspect-[16/10] overflow-hidden border-b border-white/[0.06] bg-[#0b0b11]">
-          <Image src={project.image} alt={project.imageAlt || `${project.title} project preview`} fill loading="lazy" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 300px" className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105" />
-        </div>
-        <div className="p-5">
-          <div className="mb-3 flex items-start justify-between gap-3">
-            <h4 className="text-base font-medium leading-snug text-[#e8e4e0] group-hover:text-accent">{project.title}</h4>
-            <Arrow className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent/80" />
-          </div>
-          <p className="line-clamp-3 text-xs leading-6 text-[#a19ba7]">{project.description}</p>
-          <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 font-mono text-[9px] text-accent/75">
-            {project.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}
-          </div>
-        </div>
-      </a>
-    </article>
-  );
-}
-
 export default function Projects() {
-  const recent = projects.filter((project) => project.showcase);
   const featured = FEATURED_SLUGS.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is Project => Boolean(project));
 
   return (
@@ -124,11 +98,11 @@ export default function Projects() {
           <div className="max-w-2xl">
             <span className="overline text-accent/80">{"// Selected work"}</span>
             <h2 id="projects-heading" className="mt-5 text-[clamp(2.6rem,5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.055em] text-[#f0ebe6]">
-              Built to be <span className="text-gradient">explored.</span>
+              Selected <span className="text-gradient">projects.</span>
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-[#a6a0ad]">
-              Interactive worlds, useful tools, and ideas made tangible.
-              Four recent projects, each with its own story.
+              A selection of my strongest work, chosen for technical depth,
+              practical value, and the problems each project solves.
             </p>
           </div>
           <a href="https://case-study.ibrahim-eng.dev" className="inline-flex w-fit shrink-0 items-center gap-3 border-b border-accent/35 pb-2 text-xs font-medium text-accent transition-colors hover:text-accent-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
@@ -137,20 +111,7 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
-          {recent.map((project, index) => <RecentProjectCard key={project.slug} project={project} index={index} />)}
-        </div>
-
-        <div className="mt-16 border-t border-white/[0.08] pt-9 md:mt-20">
-          <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <span className="overline text-accent/70">{"// More from my portfolio"}</span>
-              <h3 className="mt-3 text-2xl font-medium tracking-tight text-[#e8e4e0]">Platforms & applied AI</h3>
-            </div>
-            <p className="max-w-sm text-xs leading-6 text-[#a19ba7]">Client platforms, AI tools, and systems built around real problems.</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {featured.map((project) => <FeaturedProjectCard key={project.slug} project={project} />)}
-          </div>
+          {featured.map((project, index) => <FeaturedProjectCard key={project.slug} project={project} index={index} />)}
         </div>
 
         <div className="mt-12 flex justify-center">
