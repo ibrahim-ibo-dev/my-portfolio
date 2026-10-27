@@ -1,63 +1,6 @@
-"use client";
-
-import nextDynamic from "next/dynamic";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import ScrollTypography from "@/components/ScrollTypography";
-import LoadingScreen from "@/components/LoadingScreen";
-import SectionTransition from "@/components/SectionTransition";
-
-// Lazy load below-fold components to reduce initial bundle
-const About = nextDynamic(() => import("@/components/About"));
-const Skills = nextDynamic(() => import("@/components/Skills"));
-const Projects = nextDynamic(() => import("@/components/Projects"));
-const Experience = nextDynamic(() => import("@/components/Experience"));
-const Credentials = nextDynamic(() => import("@/components/Credentials"));
-const InteractivePhilosophy = nextDynamic(() => import("@/components/InteractivePhilosophy"), {
-  ssr: false,
-  loading: () => <div className="min-h-[50vh]" />,
-});
-const Contact = nextDynamic(() => import("@/components/Contact"), { ssr: false });
-const Footer = nextDynamic(() => import("@/components/Footer"));
+import PortfolioRedesign from "@/components/redesign/PortfolioRedesign";
+import {featuredWritings,featuredVideos} from "@/data/featured-expression";
 
 export default function Home() {
-  return (
-    <main className="relative">
-      <LoadingScreen />
-      <Navbar />
-      <Hero />
-      <ScrollTypography
-        lines={[
-          "PYTHON · C++ · REACT · FLUTTER · NEXT.JS · TYPESCRIPT · PYTHON · C++ · REACT ·",
-          "BUILD · INNOVATE · DEVELOP · AUTOMATE · DEPLOY · BUILD · INNOVATE ·",
-          "ARDUINO · AI · MACHINE LEARNING · DRONES · FLUTTER · ARDUINO · AI ·",
-        ]}
-      />
-      <About />
-      <ScrollTypography
-        lines={[
-          "REACT · NEXT.JS · TAILWIND · NODE.JS · GSAP · THREE.JS · REACT · NEXT.JS ·",
-          "PYTHON · C++ · HTML · CSS · MATLAB · FLUTTER · PYTHON · C++ · HTML ·",
-          "TENSORFLOW · PYTORCH · OPENCV · FIREBASE · TENSORFLOW · PYTORCH ·",
-        ]}
-      />
-      <Skills />
-      <SectionTransition variant="warm" />
-      <Projects />
-      <ScrollTypography
-        lines={[
-          "INNOVATE · SHIP · GROW · REPEAT · LEARN · ITERATE · INNOVATE · SHIP ·",
-          "AI · ROBOTICS · HARDWARE · SOFTWARE · FLUTTER · WEB · AI · ROBOTICS ·",
-          "FULL STACK · EMBEDDED · VISION · NLP · FULL STACK · EMBEDDED ·",
-        ]}
-      />
-      <Experience />
-      <SectionTransition variant="default" />
-      <Credentials />
-      <SectionTransition variant="cool" />
-      <InteractivePhilosophy />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <><link rel="preload" as="image" href="/images/backgrounds/aurora-desktop.webp" type="image/webp" media="(orientation: landscape)" fetchPriority="high"/><link rel="preload" as="image" href="/images/backgrounds/aurora-mobile.webp" type="image/webp" media="(orientation: portrait)" fetchPriority="high"/><PortfolioRedesign writings={featuredWritings} videos={featuredVideos}/></>;
 }

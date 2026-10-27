@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import {socialPreview} from "@/lib/social-preview";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-});
+const spaceGrotesk=localFont({src:"./fonts/SpaceGrotesk-Latin.woff2",weight:"300 700",variable:"--font-space-grotesk",display:"swap",fallback:["system-ui","sans-serif"]});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ibrahim-eng.dev";
+const kurdish=localFont({src:"./fonts/NotoNaskhArabic.woff2",weight:"400 700",variable:"--font-kurdish",display:"swap",fallback:["Tahoma","Arial"]});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,10 +55,11 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/og-image.png",
+        url: socialPreview("home").url,
         width: 1200,
         height: 630,
-        alt: "Ibrahim Hussein Portfolio",
+        type: "image/jpeg",
+        alt: "Ibrahim Hussein — Computer engineer. Creative by nature. A portfolio of software, AI and embedded systems.",
       },
     ],
   },
@@ -72,7 +68,10 @@ export const metadata: Metadata = {
     title: "Ibrahim Hussein | Computer Engineer & AI Developer",
     description:
       "Award-winning Computer Engineering student building AI-powered applications, full-stack solutions, and innovative hardware systems.",
-    images: ["/og-image.png"],
+    images: [{
+      url: socialPreview("home").url,
+      alt: "Ibrahim Hussein — Computer engineer. Creative by nature.",
+    }],
   },
   robots: {
     index: true,
@@ -86,7 +85,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/brand/ih-app.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/brand/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/brand/favicon-16.png", type: "image/png", sizes: "16x16" },
+    ],
+    shortcut: "/brand/favicon.ico",
+    apple: [{ url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   verification: {
     google: "wKWJrIYHPaMID1jOpJwUKL-R8gI21Ut-laoXN7f_nXk",
@@ -110,9 +115,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         {/* AI Crawlers — llms.txt discovery */}
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
         {/* Image sitemap for Google Images */}
@@ -126,7 +128,7 @@ export default function RootLayout({
         <meta name="rating" content="General" />
         <meta name="revisit-after" content="7 days" />
       </head>
-      <body className={`${spaceGrotesk.variable} antialiased`}>
+      <body className={`${spaceGrotesk.variable} ${kurdish.variable} antialiased`}>
         {/* SEO JSON-LD Structured Data — Person */}
         <script
           type="application/ld+json"

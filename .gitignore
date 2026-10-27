@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.content/
 
 # Next.js
 .next/
@@ -28,3 +29,9 @@ npm
 *.njsproj
 *.sln
 *.sw?
+
+# Local configuration and generated cache
+.env*
+!.env.example
+.vercel/
+*.tsbuildinfo

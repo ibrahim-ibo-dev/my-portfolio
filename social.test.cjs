@@ -1,0 +1,22 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const manifest=require('./src/data/social-previews.json'),name=require('./package.json').name;
+const site=name==='words-site'?'https://words.ibrahim-eng.dev':name==='motion-site'?'https://motion.ibrahim-eng.dev':'https://ibrahim-eng.dev';
+const routePrefix=name==='my-portfolio'?'projects/':'';
+const read=name=>fs.readFileSync(path.join('.next/server/app',name),'utf8');
+const images=new Set,hashes=new Set;
+for(const [slug,entry] of Object.entries(manifest))test(`${slug} shares its own real page image`,async()=>{
+  const route=slug==='home'?'':`${routePrefix}${slug}`;
+  const html=read(route?`${route}.html`:'index.html');
+  const property=key=>[...html.matchAll(new RegExp(`<meta (?:property|name)="${key}" content="([^"]*)"`,'g'))].map(m=>m[1]);
+  assert.deepEqual(property('og:image'),[site+entry.image]);
+  assert.deepEqual(property('twitter:image'),[site+entry.image]);
+  assert.deepEqual(property('og:image:width'),['1200']);assert.deepEqual(property('og:image:height'),['630']);
+  assert.deepEqual(property('og:url').map(url=>new URL(url).href),[new URL(site+(route?`/${route}`:'/')).href]);
+  assert.deepEqual([...html.matchAll(/<link rel="canonical" href="([^"]*)"/g)].map(m=>new URL(m[1]).href),[new URL(site+(route?`/${route}`:'/')).href]);
+  assert.ok(!images.has(entry.image),'Every page needs its own image URL');images.add(entry.image);
+  const buffer=fs.readFileSync(path.join('public',entry.image));
+  assert.equal(buffer[0],255);assert.equal(buffer[1],216);assert.ok(buffer.length<1000000);
+  const dimensions=await require("sharp")(buffer).metadata();assert.equal(dimensions.width,1200);assert.equal(dimensions.height,630);
+  const hash=crypto.createHash('sha256').update(buffer).digest('hex');assert.ok(!hashes.has(hash),'Images must differ by page');hashes.add(hash);
+  assert.match(entry.image,/-page-[a-f0-9]+\.jpg$/,'Use an actual page capture, not the rejected composed artwork');
+});

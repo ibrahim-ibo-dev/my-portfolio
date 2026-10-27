@@ -42,7 +42,7 @@ export async function GET() {
         <image:caption>Ibrahim Hussein, Computer Engineering student and AI developer from Kurdistan Region, Iraq</image:caption>
       </image:image>
       <image:image>
-        <image:loc>${baseUrl}/og-image.png</image:loc>
+        <image:loc>${baseUrl}/images/social/portfolio-2026-10.png</image:loc>
         <image:title>Ibrahim Hussein Portfolio</image:title>
         <image:caption>Portfolio website of Ibrahim Hussein showcasing AI and web development projects</image:caption>
       </image:image>

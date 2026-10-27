@@ -1,0 +1,53 @@
+/* The work stays in the foreground; the ambient identity remains at the edges. */
+.nx-aurora-shade::after { content:""; position:absolute; inset:0; background:#080d18; opacity:var(--nx-content-veil,.1); }
+.nx-mobile-chapter { display:none; }
+.nx-section-label { display:flex; align-items:center; gap:12px; }
+.nx-section-label::before { content:""; display:block; width:19px; height:1px; background:linear-gradient(90deg,#d4a574,#75aaa4); flex-shrink:0; }
+.nx-contact>.nx-section-label { justify-content:center; }
+.nx-contact { border-top:1px solid #c3d6ff1c; }
+.nx-contact::before { content:""; position:absolute; top:-1px; left:calc(50% - 45px); width:90px; height:1px; background:linear-gradient(90deg,transparent,#e8ba91,transparent); }
+.nx-work-card { position:relative; }
+.nx-work-card::after { content:""; position:absolute; pointer-events:none; inset:0; border-radius:inherit; box-shadow:inset 0 1px #ead0ad13; }
+.nx-work-link svg { transition:transform .3s; }
+.nx-work-card:hover .nx-work-link svg { transform:translate(2px,-2px); }
+.nx-image-caption { line-height:1.6; }
+.nx-hero-location { position:relative; }
+.nx-hero-location::after { content:""; position:absolute; bottom:-15px; left:calc(50% - 24px); width:48px; height:1px; background:linear-gradient(90deg,transparent,#b7cfce70,transparent); }
+.nx-button { position:relative; overflow:hidden; }
+.nx-button::after { content:""; position:absolute; inset:-100% -60%; transform:translateX(-110%) rotate(25deg); background:linear-gradient(90deg,transparent,#fff5,transparent); transition:transform .7s ease; pointer-events:none; }
+.nx-button:hover::after,.nx-button:focus-visible::after { transform:translateX(110%) rotate(25deg); }
+
+@media (max-width:850px) {
+  .nx-journey { display:block; }
+  .nx-journey-intro { position:relative; top:auto; }
+  .nx-mobile-chapter { display:flex; align-items:center; justify-content:space-between; gap:16px; position:sticky; top:80px; z-index:12; margin:32px -1px 0; padding:17px 13px; border:1px solid #c3d6ff24; border-radius:7px 7px 0 0; background:#0c1425ed; backdrop-filter:blur(14px); overflow:hidden; }
+  .nx-mobile-chapter>span:first-child { font:8px monospace; letter-spacing:.06em; color:#d7b494; flex-shrink:0; }
+  .nx-mobile-chapter>span:nth-child(2) { font-size:10px; color:#b7c3d3; }
+  .nx-mobile-chapter>i { position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#d4a574,#82bcb6); transform:scaleX(var(--section-progress,0)); transform-origin:left; }
+  .nx-experience-list { position:relative; padding-left:19px; margin-top:0; border-top:0; }
+  .nx-experience-list::before { content:""; position:absolute; left:0; top:0; bottom:0; width:1px; background:#a2b7c425; }
+  .nx-experience-list::after { content:""; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(#d4a574,#75aaa4); transform:scaleY(var(--section-progress,0)); transform-origin:top; }
+  .nx-experience-row { position:relative; }
+  .nx-experience-row::before { content:""; position:absolute; left:-22px; top:39px; z-index:1; width:7px; height:7px; border-radius:50%; background:#1b2839; border:1px solid #6c7d90; transition:background .3s,box-shadow .3s; }
+  .nx-experience-row.nx-card-visible::before { background:#d5b294; border-color:#d5b294; box-shadow:0 0 0 4px #d4a57412; }
+  .nx-work-card,.nx-skill-panel,.nx-achievement-card { transition:border-color .5s,box-shadow .5s; }
+  .nx-work-card.nx-card-visible,.nx-skill-panel.nx-card-visible,.nx-achievement-card.nx-card-visible { border-color:#c6b19a55; box-shadow:0 8px 35px #02071125,inset 0 1px #dcc9ad15; }
+  .nx-work-card.nx-card-visible .nx-work-link svg { transform:translate(2px,-2px); }
+  .nx-work-featured .nx-work-facts { display:flex; gap:28px; margin-bottom:26px; }
+  .nx-work-facts strong { font-size:22px; }
+  .nx-work-facts span { line-height:1.5; }
+  .nx-work-card:active { border-color:#e8ba91; }
+  .nx-achievement-image:active img { transform:scale(1.025); }
+}
+@media (max-width:600px) {
+  .nx-mobile-chapter { top:72px; }
+  .nx-section-label { gap:9px; }
+  .nx-section-label::before { width:13px; }
+  .nx-hero-bottom { bottom:45px; }
+  .nx-motion-control { bottom:10px; }
+  .nx-work-overline { font-size:6px; gap:8px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .nx-button::after { display:none; }
+  .nx-work-link svg { transform:none!important; }
+}

@@ -1,0 +1,86 @@
+{
+  "cosmic-scale": {
+    "image": "/images/social/cosmic-scale-page-6728eb4c93.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Cosmic Scale Visualizer"
+  },
+  "algorithm-playground": {
+    "image": "/images/social/algorithm-playground-page-f11915159b.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Algorithm Playground"
+  },
+  "glyphcode": {
+    "image": "/images/social/glyphcode-page-c94470eb8e.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "GlyphCode"
+  },
+  "kurdistan-weather": {
+    "image": "/images/social/kurdistan-weather-page-951ebed595.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Kurdistan Weather"
+  },
+  "rashkaw-media": {
+    "image": "/images/social/rashkaw-media-page-5ed8e57356.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Rashkaw Media"
+  },
+  "chat-mart": {
+    "image": "/images/social/chat-mart-page-cec41aa68f.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Chat Mart — Omni-Channel SaaS"
+  },
+  "kurdish-chess-ai": {
+    "image": "/images/social/kurdish-chess-ai-page-f1afe38b94.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Kurdish Chess AI — شەترەنجی کوردی"
+  },
+  "true-prence": {
+    "image": "/images/social/true-prence-page-58ec990919.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "True Prence"
+  },
+  "signed-language": {
+    "image": "/images/social/signed-language-page-c610ac3cbc.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Signed Language"
+  },
+  "bradaran": {
+    "image": "/images/social/bradaran-page-6b272665eb.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Bradaran — Car Dealership"
+  },
+  "dyari": {
+    "image": "/images/social/dyari-page-3a7e3d147d.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Dyari — Advanced Car Dealership"
+  },
+  "home": {
+    "image": "/images/social/home-page-e1b870c875.jpg",
+    "width": 1200,
+    "height": 630,
+    "type": "image/jpeg",
+    "alt": "Ibrahim Hussein — Computer engineer. Creative by nature."
+  }
+}

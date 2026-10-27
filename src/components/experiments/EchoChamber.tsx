@@ -1,4 +1,5 @@
 "use client";
+import {attachCanvasPointer} from "./canvas-input";
 import { useEffect, useRef } from "react";
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
@@ -21,16 +22,13 @@ export default function EchoChamber() {
     let mx = W / 2, my = H / 2, pmx = mx, pmy = my;
     let swipeSpeed = 0;
 
-    canvas.addEventListener("mousemove", (e) => {
+    const onPointerMove=(e:PointerEvent)=>{
       const r = canvas.getBoundingClientRect();
       const nx = e.clientX - r.left, ny = e.clientY - r.top;
       swipeSpeed = lerp(swipeSpeed, Math.hypot(nx - pmx, ny - pmy), 0.55);
       pmx = mx; pmy = my; mx = nx; my = ny;
-    });
-    canvas.addEventListener("touchmove", (e) => {
-      e.preventDefault(); const r = canvas.getBoundingClientRect();
-      mx = e.touches[0].clientX - r.left; my = e.touches[0].clientY - r.top;
-    }, { passive: false });
+    };
+    const releasePointer=attachCanvasPointer(canvas,onPointerMove);
 
     const ro = new ResizeObserver(() => { W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W; canvas.height = H; });
     ro.observe(canvas);
@@ -103,7 +101,7 @@ export default function EchoChamber() {
       raf = requestAnimationFrame(tick);
     }
     tick();
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+    return () => { releasePointer(); cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);
 
   return <canvas ref={canvasRef} className="w-full h-full block" style={{ touchAction: "none", background: "#1C1632" }} />;

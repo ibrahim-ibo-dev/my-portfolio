@@ -1,0 +1,9 @@
+.nx-collection-gateway{display:flex;align-items:center;justify-content:space-between;gap:30px;border-top:1px solid #c6d1e52b;margin-top:38px;padding:28px 0 10px;color:#eee5d8;text-decoration:none}
+.nx-collection-gateway>div{display:grid;gap:10px;min-width:0}
+.nx-collection-gateway span{font-size:11px;line-height:1.6;color:#a6b4c8}
+.nx-collection-gateway strong{font-size:clamp(21px,2.3vw,30px);line-height:1.35;letter-spacing:-.04em;font-weight:400;transition:color .2s}
+.nx-collection-gateway small{font:10px/1.5 var(--font-space-grotesk),sans-serif;letter-spacing:.02em;color:#8fa1b8}
+.nx-collection-gateway>i{display:grid;place-items:center;flex-shrink:0;width:58px;height:58px;border:1px solid #d1b18b78;border-radius:50%;color:#e2c09a;font-style:normal;transition:background .25s,color .25s,border-color .25s}
+.nx-collection-gateway>i svg{transition:transform .25s}.nx-collection-gateway:hover strong{color:#e8c8a2}.nx-collection-gateway:hover>i{background:#e6c6a0;color:#0c1421;border-color:#e6c6a0}.nx-collection-gateway:hover svg{transform:translate(2px,-2px)}
+@media(max-width:600px){.nx-collection-gateway{margin-top:27px;padding-top:23px;gap:18px}.nx-collection-gateway strong{font-size:21px}.nx-collection-gateway>i{width:46px;height:46px}.nx-collection-gateway>i svg{width:19px;height:19px}.nx-collection-gateway span{font-size:10px}.nx-collection-gateway small{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.nx-collection-gateway *{transition:none!important}.nx-collection-gateway:hover svg{transform:none}}

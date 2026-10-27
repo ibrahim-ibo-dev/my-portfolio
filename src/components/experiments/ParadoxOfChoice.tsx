@@ -1,4 +1,5 @@
 "use client";
+import {attachCanvasPointer} from "./canvas-input";
 import { useEffect, useRef } from "react";
 
 interface Node { x: number; y: number; vx: number; vy: number; w: number; h: number; label: string; gen: number; }
@@ -35,11 +36,7 @@ export default function ParadoxOfChoice() {
       const r = canvas.getBoundingClientRect(); mxRef.current = e.clientX - r.left; myRef.current = e.clientY - r.top; outsideRef.current = false;
     };
     const onLeave = () => { outsideRef.current = true; };
-    canvas.addEventListener("mousemove", onMove); canvas.addEventListener("mouseleave", onLeave);
-    canvas.addEventListener("touchmove", (e) => {
-      e.preventDefault(); const r = canvas.getBoundingClientRect();
-      mxRef.current = e.touches[0].clientX - r.left; myRef.current = e.touches[0].clientY - r.top;
-    }, { passive: false });
+    const releasePointer=attachCanvasPointer(canvas,onMove,{onLeave});
 
     const ro = new ResizeObserver(() => { W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W; canvas.height = H; initNodes(); });
     ro.observe(canvas);
@@ -96,7 +93,7 @@ export default function ParadoxOfChoice() {
       raf = requestAnimationFrame(tick);
     }
     tick();
-    return () => { cancelAnimationFrame(raf); canvas.removeEventListener("mousemove", onMove); canvas.removeEventListener("mouseleave", onLeave); ro.disconnect(); };
+    return () => { cancelAnimationFrame(raf); releasePointer(); ro.disconnect(); };
   }, []);
 
   return <canvas ref={canvasRef} className="w-full h-full block" style={{ touchAction: "none", background: "#0B0B14" }} />;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {socialPreview} from "@/lib/social-preview";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { notFound } from "next/navigation";
 import ProjectDetail from "@/components/ProjectDetail";
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
 
   const description = project.description.slice(0, 160);
+  const preview=socialPreview(project.slug);
 
   return {
     title: project.title,
@@ -24,13 +26,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       type: "article",
       url: `/projects/${slug}`,
-      images: [{ url: project.image, alt: project.imageAlt || project.title }],
+      images: [preview],
     },
     twitter: {
       card: "summary_large_image",
       title: project.title,
       description,
-      images: [project.image],
+      images: [preview],
     },
   };
 }

@@ -1,0 +1,152 @@
+/* About, expertise, experience and achievements for the local redesign. */
+.nx-about,.nx-expertise,.nx-journey,.nx-achievements { position:relative; padding-block:110px; scroll-margin-top:100px; }
+.nx-about-heading { margin-bottom:55px; }
+.nx-about-layout { display:grid; grid-template-columns:.8fr 1.2fr; gap:90px; align-items:start; }
+.nx-portrait { margin:0; position:relative; }
+.nx-portrait::before { content:""; position:absolute; inset:30px -20px 50px 20px; border:1px solid #d4a57425; border-radius:18px; pointer-events:none; }
+.nx-portrait-image { position:relative; aspect-ratio:3/4; overflow:hidden; border-radius:16px; border:1px solid #e4d0b926; background:#101824; }
+.nx-profile-photo { object-fit:cover; object-position:50% 35%; transition:transform .7s; }
+.nx-portrait:hover .nx-profile-photo { transform:scale(1.025); }
+.nx-portrait-shade { position:absolute; inset:0; pointer-events:none; background:linear-gradient(0deg,#090d17f2,transparent 58%); }
+.nx-portrait-coordinates { position:absolute; left:22px; right:22px; top:24px; display:flex; align-items:center; justify-content:space-between; font:8px monospace; letter-spacing:.15em; color:#f3ece0; text-shadow:0 1px 10px #000; }
+.nx-portrait-coordinates i { width:6px; height:6px; background:#bacdb8; border-radius:50%; box-shadow:0 0 0 4px #c1d9bd18; }
+.nx-portrait-overlay { position:absolute; left:26px; right:26px; bottom:28px; }
+.nx-portrait-overlay>span { color:#c8b09b; letter-spacing:.14em; font:9px monospace; }
+.nx-portrait-overlay p { margin-top:12px; color:#f3ece5; font-size:29px; line-height:1.2; letter-spacing:-.04em; }
+.nx-portrait-caption { display:flex; gap:16px; align-items:center; position:relative; padding:24px 0; }
+.nx-portrait-caption>span:first-child { font:8px monospace; color:#b3a18e; letter-spacing:.1em; }
+.nx-portrait-caption p { font-size:10px; color:#bbb4bd; }
+.nx-portrait-caption>span:last-child { color:#d4a574; margin-left:auto; font-size:17px; }
+.nx-about-content { padding-top:10px; }
+.nx-about-intro { color:#f2ede6; font-size:clamp(28px,2.8vw,39px); font-weight:400; line-height:1.35; letter-spacing:-.045em; margin-bottom:26px; }
+.nx-about-intro>span { color:#a8b5c8; }
+.nx-biography { display:grid; gap:18px; margin-bottom:32px; }
+.nx-biography p { font-size:13px; line-height:1.95; color:#aeb0bd; }
+.nx-biography strong { font-weight:500; color:#e5d8ca; }
+.nx-capability-list { border-top:1px solid #d4d9ec18; }
+.nx-capability-list article { display:flex; gap:17px; align-items:start; padding:19px 0; border-bottom:1px solid #d4d9ec14; }
+.nx-capability-index { padding-top:3px; color:#bba98f; font:9px monospace; flex-shrink:0; }
+.nx-capability-list h3 { color:#e9e3dd; font-size:14px; font-weight:500; letter-spacing:-.02em; }
+.nx-capability-list p { color:#9ca4b6; font-size:11px; line-height:1.8; margin-top:7px; max-width:410px; }
+.nx-capability-mark { margin-left:auto; color:#7c8b9c; font-size:18px; padding-left:8px; }
+.nx-expertise { padding-top:20px; }
+.nx-expertise-heading,.nx-achievements-heading { display:flex; align-items:end; justify-content:space-between; gap:42px; margin-bottom:42px; }
+.nx-expertise-heading>p,.nx-achievements-heading>p { color:#a6adbd; max-width:330px; font-size:12px; line-height:1.95; padding-bottom:5px; }
+.nx-skill-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:17px; }
+.nx-skill-panel { position:relative; overflow:hidden; min-height:310px; padding:26px; border:1px solid #d7e0ff16; border-top-color:#d4a57480; border-radius:13px; background:linear-gradient(145deg,#29253070,#10172990); transition:border-color .3s,transform .3s,background .3s; }
+.nx-skill-panel:nth-child(2) { border-top-color:#5dbeb28c; background:linear-gradient(145deg,#1c373b65,#10172990); }
+.nx-skill-panel:nth-child(3) { border-top-color:#799df59c; background:linear-gradient(145deg,#1b2d4965,#10172990); }
+.nx-skill-panel:nth-child(4) { border-top-color:#a789d99c; background:linear-gradient(145deg,#35254865,#10172990); }
+.nx-skill-panel:hover { transform:translateY(-5px); border-color:#b9c7ef38; }
+.nx-skill-top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:30px; }
+.nx-skill-symbol { width:35px; height:35px; display:grid; place-items:center; border:1px solid #d4a57430; border-radius:9px; font:12px monospace; color:#dfb891; background:#d4a5740a; }
+.nx-skill-panel:nth-child(2) .nx-skill-symbol { color:#89d8c8; border-color:#75c8b930; background:#75c8b908; }
+.nx-skill-panel:nth-child(3) .nx-skill-symbol { color:#9cbbfa; border-color:#9cbbfa30; background:#9cbbfa08; }
+.nx-skill-panel:nth-child(4) .nx-skill-symbol { color:#bca0e9; border-color:#bca0e930; background:#bca0e908; font-size:22px; }
+.nx-skill-count { font:8px monospace; letter-spacing:.08em; color:#9a9eb0; }
+.nx-skill-panel h3 { font-weight:500; font-size:25px; line-height:1.15; letter-spacing:-.045em; color:#eee8e4; }
+.nx-skill-panel p { font-size:10px; color:#a4aabc; line-height:1.75; margin-top:10px; }
+.nx-skill-panel ul { position:relative; display:flex; flex-wrap:wrap; align-content:start; gap:7px; margin-top:27px; list-style:none; padding:0; z-index:1; }
+.nx-skill-panel li { border:1px solid #c3d2ff17; border-radius:5px; padding:7px 9px; font:9px monospace; color:#bdc2d1; background:#0b11283d; }
+.nx-skill-panel-index { position:absolute; right:12px; bottom:-21px; color:#ffffff03; font-size:108px; letter-spacing:-.06em; line-height:1; pointer-events:none; }
+.nx-journey { display:grid; grid-template-columns:.8fr 1.4fr; gap:90px; padding-top:90px; border-top:1px solid #e4d0b917; }
+.nx-journey-intro { align-self:start; position:sticky; top:130px; }
+.nx-journey-intro>p { color:#a6adbd; font-size:12px; line-height:1.95; max-width:280px; margin-top:25px; }
+.nx-journey-note { display:flex; align-items:center; gap:10px; font:8px monospace; letter-spacing:.1em; color:#ad9c88; margin-top:36px; }
+.nx-journey-note i { width:4px; height:4px; background:#d4a574; border-radius:50%; }
+.nx-experience-list { border-top:1px solid #d0d5ec26; }
+.nx-experience-row { border-bottom:1px solid #d0d5ec1c; }
+.nx-experience-row summary { display:grid; grid-template-columns:82px 1fr 28px; align-items:start; gap:17px; padding:30px 0; cursor:pointer; list-style:none; }
+.nx-experience-row summary::-webkit-details-marker { display:none; }
+.nx-experience-year { color:#a6a3af; font:9px monospace; line-height:1.7; padding-top:1px; }
+.nx-experience-company { display:block; color:#b7a48e; font:8px monospace; letter-spacing:.1em; text-transform:uppercase; line-height:1.6; }
+.nx-experience-row h3 { color:#ebe8e4; font-size:20px; letter-spacing:-.035em; line-height:1.3; font-weight:400; margin-top:10px; }
+.nx-experience-toggle { position:relative; display:block; width:28px; height:28px; border:1px solid #b8c4e422; border-radius:50%; color:#d4a574; transition:background .2s; }
+.nx-experience-toggle i { position:absolute; left:8px; top:12px; width:10px; height:1px; background:currentColor; }
+.nx-experience-toggle i:last-child { transform:rotate(90deg); transition:transform .2s; }
+.nx-experience-row[open] .nx-experience-toggle { background:#d4a5740f; border-color:#d4a57440; }
+.nx-experience-row[open] .nx-experience-toggle i:last-child { transform:rotate(0); }
+.nx-experience-row summary:hover h3 { color:#dfb891; }
+.nx-experience-row summary:focus-visible { outline:2px solid #d4a574; outline-offset:6px; border-radius:3px; }
+.nx-experience-body { padding:0 34px 30px 99px; }
+.nx-experience-body>p { color:#a6adbd; font-size:12px; line-height:1.9; }
+.nx-experience-tags { display:flex; flex-wrap:wrap; gap:7px; margin:21px 0 17px; }
+.nx-experience-tags span { padding:6px 9px; border:1px solid #bfcaff17; border-radius:4px; font:8px monospace; color:#b3b6c4; }
+.nx-experience-location { color:#9895a4; font:8px monospace; }
+.nx-achievements { padding-top:35px; }
+.nx-achievement-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.nx-achievement-card { min-width:0; overflow:hidden; border:1px solid #d1dcff19; border-radius:14px; background:linear-gradient(135deg,#1d243547,#11162780); transition:border-color .3s; }
+.nx-achievement-card:hover { border-color:#d4a57444; }
+.nx-achievement-image { display:block; position:relative; aspect-ratio:16/10; margin:10px; border-radius:8px; overflow:hidden; background:#141c2c; }
+.nx-achievement-image img { object-fit:contain; transition:transform .5s; }
+.nx-achievement-image:hover img { transform:scale(1.035); }
+.nx-achievement-image:focus-visible { outline:2px solid #dfb891; outline-offset:-3px; }
+.nx-achievement-view { display:grid; place-items:center; position:absolute; right:10px; bottom:10px; width:29px; height:29px; border:1px solid #e8c9a04a; border-radius:50%; background:#0b1024cc; font-size:17px; color:#e5c6a6; }
+.nx-achievement-content { padding:21px 24px 26px; }
+.nx-achievement-category { display:flex; justify-content:space-between; gap:15px; color:#c0a88e; font:8px monospace; letter-spacing:.1em; text-transform:uppercase; }
+.nx-achievement-category>span:last-child { color:#8b91a2; }
+.nx-achievement-content h3 { margin-top:19px; color:#eae5e3; font-size:20px; line-height:1.35; letter-spacing:-.035em; font-weight:400; }
+.nx-achievement-subtitle { margin-top:12px; font-size:9px; color:#bda487; line-height:1.7; }
+.nx-achievement-description { margin-top:18px; padding-top:18px; border-top:1px solid #c6d1f516; color:#a1aabc; font-size:11px; line-height:1.9; }
+.nx-achievement-more { margin-top:22px; }
+.nx-achievement-more[hidden] { display:none; }
+.nx-achievement-controls { display:flex; align-items:center; justify-content:space-between; gap:24px; padding-top:30px; }
+.nx-achievement-controls>p { font:9px monospace; color:#9ca4b2; }
+.nx-achievement-expand { gap:30px; }
+.nx-achievement-expand>span { font-size:19px; line-height:1; }
+@media(max-width:1100px) {
+ .nx-about-layout { gap:50px; } .nx-journey { gap:45px; grid-template-columns:.75fr 1.4fr; } .nx-skill-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .nx-skill-panel { min-height:285px; } .nx-experience-row summary { grid-template-columns:70px 1fr 28px; gap:13px; } .nx-experience-body { padding-left:83px; } .nx-achievement-content { padding:18px 19px 24px; } .nx-achievement-content h3 { font-size:18px; }
+}
+@media(max-width:800px) {
+ .nx-about,.nx-expertise,.nx-journey,.nx-achievements { padding-block:75px; } .nx-about-layout { grid-template-columns:.8fr 1.2fr; gap:35px; } .nx-about-intro { font-size:28px; } .nx-about-desktop-break { display:none; } .nx-portrait-overlay { left:20px; bottom:22px; } .nx-portrait-overlay p { font-size:24px; } .nx-portrait-caption { flex-wrap:wrap; gap:10px; } .nx-portrait-caption>span:last-child { display:none; } .nx-biography p { font-size:12px; } .nx-journey { display:block; } .nx-journey-intro { position:static; margin-bottom:35px; } .nx-journey-intro>p { max-width:400px; } .nx-journey-note { display:none; } .nx-achievement-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .nx-achievement-card:first-child { grid-column:span 2; display:grid; grid-template-columns:1fr 1fr; } .nx-achievement-card:first-child .nx-achievement-image { height:calc(100% - 20px); min-height:260px; aspect-ratio:auto; } .nx-achievement-more .nx-achievement-card:first-child { grid-column:auto; display:block; } .nx-achievement-more .nx-achievement-card:first-child .nx-achievement-image { height:auto; min-height:0; aspect-ratio:16/10; } .nx-expertise-heading,.nx-achievements-heading { align-items:start; } .nx-expertise-heading>p,.nx-achievements-heading>p { max-width:230px; padding-top:30px; }
+}
+@media(max-width:640px) {
+ .nx-about,.nx-expertise,.nx-journey,.nx-achievements { padding-block:65px; scroll-margin-top:90px; } .nx-about-heading { margin-bottom:34px; } .nx-about-layout { display:flex; flex-direction:column; gap:30px; } .nx-portrait { width:min(100%,400px); align-self:center; } .nx-portrait::before { inset:20px -9px 53px 12px; } .nx-portrait-image { aspect-ratio:4/4.6; } .nx-portrait-overlay p { font-size:29px; } .nx-portrait-caption { flex-wrap:nowrap; font-size:10px; padding-block:19px; } .nx-portrait-caption>span:last-child { display:block; } .nx-about-content { padding:0; } .nx-about-intro { font-size:29px; } .nx-biography p { font-size:13px; } .nx-capability-list article { padding-block:20px; } .nx-capability-list h3 { font-size:15px; } .nx-capability-list p { font-size:11px; } .nx-expertise { padding-top:20px; } .nx-expertise-heading,.nx-achievements-heading { display:block; margin-bottom:30px; } .nx-expertise-heading>p,.nx-achievements-heading>p { margin-top:22px; max-width:340px; padding-top:0; font-size:12px; } .nx-skill-grid { grid-template-columns:1fr; gap:14px; } .nx-skill-panel { min-height:0; padding:26px; } .nx-skill-top { margin-bottom:22px; } .nx-skill-panel h3 { font-size:28px; } .nx-skill-panel p { font-size:11px; } .nx-skill-panel ul { margin-top:22px; } .nx-skill-panel li { font-size:10px; padding:8px 10px; }
+ .nx-experience-row summary { grid-template-columns:1fr 27px; gap:9px 16px; padding-block:25px; } .nx-experience-year { grid-column:1; } .nx-experience-row summary>div { grid-column:1; } .nx-experience-toggle { grid-column:2; grid-row:1 / span 2; align-self:center; } .nx-experience-company { font-size:8px; } .nx-experience-row h3 { font-size:22px; margin-top:9px; } .nx-experience-body { padding:0 0 27px; } .nx-experience-body>p { font-size:12px; } .nx-achievements { padding-top:15px; } .nx-achievement-grid { grid-template-columns:1fr; gap:22px; } .nx-achievement-card:first-child { display:block; grid-column:auto; } .nx-achievement-card:first-child .nx-achievement-image { height:auto; min-height:0; aspect-ratio:16/10; } .nx-achievement-content { padding:20px 22px 26px; } .nx-achievement-content h3 { font-size:22px; } .nx-achievement-subtitle { font-size:10px; } .nx-achievement-description { font-size:12px; } .nx-achievement-controls { flex-direction:column-reverse; align-items:center; gap:20px; } .nx-achievement-expand { width:100%; }
+}
+/* Quiet drafting details connect the biography, toolkit and project history. */
+.nx-about::before,.nx-achievements::before { content:""; position:absolute; top:36px; left:0; width:100%; height:1px; background:linear-gradient(90deg,#b4c4df30,#b4c4df0c 65%,transparent); pointer-events:none; }
+.nx-about::after,.nx-achievements::after { content:"+"; position:absolute; top:29px; right:0; color:#c8b6a0; font:13px monospace; line-height:13px; pointer-events:none; }
+.nx-achievements::before { top:0; }.nx-achievements::after { top:-7px; }
+.nx-portrait::before { border-color:#d4a57443; background:repeating-linear-gradient(135deg,transparent 0 7px,#d4a57408 7px 8px); }
+.nx-portrait-image::after { content:""; position:absolute; inset:10px; z-index:2; pointer-events:none; background:linear-gradient(#e4d0b990,#e4d0b990) left top/20px 1px no-repeat,linear-gradient(#e4d0b990,#e4d0b990) left top/1px 20px no-repeat,linear-gradient(#e4d0b960,#e4d0b960) right bottom/20px 1px no-repeat,linear-gradient(#e4d0b960,#e4d0b960) right bottom/1px 20px no-repeat; }
+.nx-portrait-caption { border-bottom:1px solid #bccdea20; }
+.nx-portrait-caption>span:last-child { display:grid; place-items:center; width:29px; height:29px; border:1px solid #d4a57433; border-radius:50%; }
+.nx-capability-list article { position:relative; transition:background .25s,border-color .25s; }
+.nx-capability-list article:hover { background:linear-gradient(90deg,#a7c8cc08,transparent 85%); border-bottom-color:#c3d1de36; }
+.nx-capability-index { min-width:23px; border-top:1px solid #d4a57457; margin-top:3px; padding-top:7px; }
+.nx-capability-mark { transition:transform .25s,color .25s; }
+.nx-capability-list article:hover .nx-capability-mark { transform:translate(2px,-2px); color:#d5b18c; }
+.nx-skill-panel { --skill-detail:#d4a574; isolation:isolate; box-shadow:inset 0 1px 0 #fff05; }
+.nx-skill-panel:nth-child(2) { --skill-detail:#7acabc; }.nx-skill-panel:nth-child(3) { --skill-detail:#8daff3; }.nx-skill-panel:nth-child(4) { --skill-detail:#b298dd; }
+.nx-skill-panel::before { content:""; position:absolute; z-index:-1; width:180px; height:180px; top:-26px; right:-33px; border:1px solid color-mix(in srgb,var(--skill-detail) 13%,transparent); border-radius:50%; background:radial-gradient(circle,color-mix(in srgb,var(--skill-detail) 35%,transparent) .6px,transparent .8px) 0 0/9px 9px; mask-image:linear-gradient(150deg,#000,transparent 75%); opacity:.75; transition:transform .7s,opacity .5s; pointer-events:none; }
+.nx-skill-panel::after { content:""; position:absolute; top:0; left:26px; width:42px; height:2px; background:var(--skill-detail); box-shadow:0 3px 15px color-mix(in srgb,var(--skill-detail) 22%,transparent); }
+.nx-skill-panel:hover::before { transform:rotate(12deg) scale(1.08); opacity:1; }
+.nx-skill-panel:hover { box-shadow:0 16px 35px #03071240,inset 0 1px 0 #ffffff08; }
+.nx-skill-symbol { box-shadow:inset 0 0 15px #ffffff03; }
+.nx-skill-panel li { transition:border-color .2s,color .2s,background .2s; }
+.nx-skill-panel:hover li { border-color:color-mix(in srgb,var(--skill-detail) 23%,transparent); color:#dde0e8; }
+.nx-skill-panel-index { color:#ffffff08; bottom:-12px; right:17px; font-size:97px; }
+.nx-experience-list { position:relative; padding-left:27px; border-top:0; }
+.nx-experience-list::before { content:""; position:absolute; left:4px; top:35px; bottom:35px; width:1px; background:repeating-linear-gradient(to bottom,#a8b7d148 0 2px,transparent 2px 7px); }
+.nx-experience-row { position:relative; }
+.nx-experience-row:first-child { border-top:1px solid #d0d5ec26; }
+.nx-experience-row::before { content:""; position:absolute; left:-27px; top:34px; width:9px; height:9px; border-radius:50%; background:#0b1322; border:1px solid #9fadc56b; box-shadow:0 0 0 5px #0b1322; transition:border-color .25s,background .25s; }
+.nx-experience-row[open]::before { background:#dfb891; border-color:#efd6ba; box-shadow:0 0 0 5px #d4a57413; }
+.nx-experience-row[open] { background:linear-gradient(110deg,#b8c9eb04,transparent 70%); }
+.nx-experience-body { position:relative; }
+.nx-experience-body::before { content:""; position:absolute; left:0; top:3px; height:28px; width:1px; background:linear-gradient(#d4a57478,transparent); }
+.nx-experience-tags span { background:#0b12242b; }
+.nx-achievement-card { position:relative; box-shadow:inset 0 1px 0 #ffffff06; transition:border-color .3s,transform .3s,box-shadow .3s; }
+.nx-achievement-card::before { content:""; position:absolute; top:0; left:24px; width:38px; height:1px; background:#d5b18ca1; }
+.nx-achievement-card:nth-child(3n + 2)::before { background:#7acabcaa; }.nx-achievement-card:nth-child(3n)::before { background:#a8b9e5aa; }
+.nx-achievement-card:hover { transform:translateY(-4px); box-shadow:0 18px 40px #03071240; }
+.nx-achievement-image { background:radial-gradient(ellipse at 50% 40%,#2c344c,#111826); box-shadow:inset 0 0 0 1px #d1dcff12; }
+.nx-achievement-image::after { content:""; position:absolute; inset:7px; pointer-events:none; background:linear-gradient(#c8d9e67a,#c8d9e67a) left top/12px 1px no-repeat,linear-gradient(#c8d9e67a,#c8d9e67a) left top/1px 12px no-repeat,linear-gradient(#c8d9e67a,#c8d9e67a) right bottom/12px 1px no-repeat,linear-gradient(#c8d9e67a,#c8d9e67a) right bottom/1px 12px no-repeat; }
+.nx-achievement-view { transition:background .25s,transform .25s; }
+.nx-achievement-image:hover .nx-achievement-view { background:#d8b48c; color:#0e1522; transform:rotate(6deg); }
+.nx-achievement-category>span:first-child { display:flex; align-items:center; gap:7px; }
+.nx-achievement-category>span:first-child::before { content:""; display:inline-block; height:3px; width:3px; background:#d4a574; border-radius:50%; }
+@media(max-width:800px) { .nx-about::before { top:20px; }.nx-about::after { top:13px; } }
+@media(max-width:640px) { .nx-experience-list { padding-left:20px; }.nx-experience-row::before { left:-20px; top:29px; }.nx-experience-list::before { top:30px; bottom:30px; }.nx-experience-body::before { display:none; }.nx-achievements::before,.nx-achievements::after { display:none; } }
+@media(prefers-reduced-motion:reduce) { .nx-profile-photo,.nx-skill-panel,.nx-skill-panel::before,.nx-capability-list article,.nx-capability-mark,.nx-skill-panel li,.nx-experience-row::before,.nx-experience-toggle,.nx-experience-toggle i,.nx-achievement-card,.nx-achievement-image img,.nx-achievement-view { transition:none; } .nx-portrait:hover .nx-profile-photo,.nx-skill-panel:hover,.nx-skill-panel:hover::before,.nx-capability-list article:hover .nx-capability-mark,.nx-achievement-card:hover,.nx-achievement-image:hover img,.nx-achievement-image:hover .nx-achievement-view { transform:none; } }

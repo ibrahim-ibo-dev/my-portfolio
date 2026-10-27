@@ -1,4 +1,5 @@
 "use client";
+import {attachCanvasPointer} from "./canvas-input";
 import { useEffect, useRef } from "react";
 
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
@@ -24,18 +25,14 @@ export default function FragilityOfConnection() {
     const SPEED_LIMIT = 16, CONNECT_DIST = 80, COOLDOWN_FRAMES = 180;
     let pmx = mx, pmy = my;
 
-    canvas.addEventListener("mousemove", (e) => {
+    const onPointerMove=(e:PointerEvent)=>{
       const r = canvas.getBoundingClientRect();
       const nx = e.clientX - r.left, ny = e.clientY - r.top;
       rawSpeed = Math.hypot(nx - pmx, ny - pmy);
       speed = lerp(speed, rawSpeed, 0.5);
       pmx = mx; pmy = my; mx = nx; my = ny;
-    });
-    canvas.addEventListener("touchmove", (e) => {
-      e.preventDefault();
-      const r = canvas.getBoundingClientRect();
-      mx = e.touches[0].clientX - r.left; my = e.touches[0].clientY - r.top;
-    }, { passive: false });
+    };
+    const releasePointer=attachCanvasPointer(canvas,onPointerMove);
 
     const ro = new ResizeObserver(() => {
       W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W; canvas.height = H;
@@ -111,7 +108,7 @@ export default function FragilityOfConnection() {
       raf = requestAnimationFrame(tick);
     }
     tick();
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+    return () => { releasePointer(); cancelAnimationFrame(raf); ro.disconnect(); };
   }, []);
 
   return <canvas ref={canvasRef} className="w-full h-full block" style={{ touchAction: "none", background: "#09090B" }} />;
